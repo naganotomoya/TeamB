@@ -10,6 +10,8 @@ Game::Game()
 
 Game::~Game()
 {
+
+	DeleteGO(m_skinModelRender);
 }
 bool Game::Start()
 {
@@ -27,7 +29,7 @@ bool Game::Start()
 
 void Game::Update()
 {
-	if (Pad(0).IsPress(enButtonSelect) == true) {
+	if (Pad(0).IsPress(enButtonStart) == true) {
 		NewGO<Title>(0);
 		DeleteGO(this);
 	}

@@ -46,5 +46,8 @@
     <ImageContentTask Include="Assets\sprite\sneak-kill.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

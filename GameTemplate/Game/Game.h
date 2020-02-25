@@ -10,7 +10,8 @@ public:
 	Game();
 	~Game();
 	bool Start();
-	void Update() override;
-	prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
+	void Update()/* override*/;
+	//prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
+	prefab::CSpriteRender* m_spriteRender = nullptr;
 };
 

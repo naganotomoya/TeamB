@@ -11,7 +11,8 @@ Game::Game()
 Game::~Game()
 {
 
-	DeleteGO(m_skinModelRender);
+	//DeleteGO(m_skinModelRender);
+	DeleteGO(m_spriteRender);
 }
 bool Game::Start()
 {
@@ -21,8 +22,10 @@ bool Game::Start()
 	MainCamera().SetFar(10000.0f);
 	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });
 	MainCamera().Update();
-	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	m_skinModelRender->Init(L"modelData/unityChan.cmo");
+	/*m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
+	m_skinModelRender->Init(L"modelData/unityChan.cmo");*/
+	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	m_spriteRender->Init(L"sprite/phaikei.dds", 1280.0f, 720.0f);
 	
 	return true;
 }

@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|Win32'">Create</PrecompiledHeader>
@@ -1788,6 +1789,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
@@ -1804,6 +1806,14 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\赤.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\effect\Bon.efk">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

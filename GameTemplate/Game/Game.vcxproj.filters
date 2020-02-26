@@ -14,12 +14,19 @@
     <Filter Include="Assets\sprite">
       <UniqueIdentifier>{a6ce300a-b532-440d-b914-b4661d3015ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\effect">
+      <UniqueIdentifier>{978cb570-bf5d-4255-aa8a-12c071994e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\effect\Texture">
+      <UniqueIdentifier>{018bd96a-dd5e-4e9d-873b-3f82ec98c126}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -28,6 +35,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="ProgressBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -49,5 +57,13 @@
     <ImageContentTask Include="Assets\sprite\Phaikei.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\赤.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\effect\Bon.efk">
+      <Filter>Assets\effect</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

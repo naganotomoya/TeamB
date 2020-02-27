@@ -1821,6 +1821,40 @@
       <FileType>Document</FileType>
     </CustomBuild>
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\effect\Texture\actionlines.png" />
+    <CustomBuild Include="Assets\effect\Texture\aurora01.png" />
+    <CustomBuild Include="Assets\effect\Texture\burst02_red.png" />
+    <CustomBuild Include="Assets\effect\Texture\clockHand.png" />
+    <CustomBuild Include="Assets\effect\Texture\double-shockwave.png" />
+    <CustomBuild Include="Assets\effect\Texture\drillshi.png" />
+    <CustomBuild Include="Assets\effect\Texture\eggzero.png" />
+    <CustomBuild Include="Assets\effect\Texture\fire_tex.png" />
+    <CustomBuild Include="Assets\effect\Texture\glow.png" />
+    <CustomBuild Include="Assets\effect\Texture\LaserMain02.png" />
+    <CustomBuild Include="Assets\effect\Texture\orb_colored.png" />
+    <CustomBuild Include="Assets\effect\Texture\Particle01.png" />
+    <CustomBuild Include="Assets\effect\Texture\ribbon01_trans.png" />
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave004.png" />
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring001.png" />
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring001_long.png" />
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring002.png" />
+    <CustomBuild Include="Assets\effect\Texture\smoke_tex.png" />
+    <CustomBuild Include="Assets\effect\Texture\squareWave.png" />
+    <CustomBuild Include="Assets\effect\Texture\squareWave03_192.png" />
+    <CustomBuild Include="Assets\effect\Texture\squareWave03_384.png" />
+    <CustomBuild Include="Assets\effect\Texture\starpart.PNG" />
+    <CustomBuild Include="Assets\effect\Texture\Thunder01.png" />
+    <CustomBuild Include="Assets\effect\Texture\Wind01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\悲しみ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\effect\Poteto.efk">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

@@ -73,9 +73,87 @@
     <ImageContentTask Include="Assets\sprite\赤.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\悲しみ.jpg">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">
+      <Filter>Assets\effect</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Wind01.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\actionlines.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\aurora01.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\burst02_red.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\clockHand.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\double-shockwave.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\drillshi.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\eggzero.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\fire_tex.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\glow.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\LaserMain02.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\orb_colored.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Particle01.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\ribbon01_trans.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring001.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring001_long.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave_ring002.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Shock_wave004.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\smoke_tex.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\squareWave.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\squareWave03_192.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\squareWave03_384.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\starpart.PNG">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Texture\Thunder01.png">
+      <Filter>Assets\effect\Texture</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Poteto.efk">
       <Filter>Assets\effect</Filter>
     </CustomBuild>
   </ItemGroup>

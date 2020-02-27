@@ -20,6 +20,9 @@
     <Filter Include="Assets\effect\Texture">
       <UniqueIdentifier>{018bd96a-dd5e-4e9d-873b-3f82ec98c126}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\Hand">
+      <UniqueIdentifier>{86999868-5a6b-4773-bc03-fce9419b7821}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -27,6 +30,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -36,6 +41,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -45,6 +52,12 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx">
+      <Filter>Assets\modelData\Hand</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Hand\LHand.FBX">
+      <Filter>Assets\modelData\Hand</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

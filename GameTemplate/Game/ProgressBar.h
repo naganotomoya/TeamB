@@ -17,7 +17,7 @@ private:
 	CVector3 effecto = { 30.0,160.0,0.0 };//唐揚げエフェ位置
 	CVector3 effe = { 70.0,140.0,0.0 };//ポテトエフェ位置
 
-	float x = 0.0f;//赤バー初期値
-	float y = 0.0f;//水玉初期値
+	float x = 1.0f;//赤バー初期値
+	float y = 1.0f;//水玉初期値
 };
 

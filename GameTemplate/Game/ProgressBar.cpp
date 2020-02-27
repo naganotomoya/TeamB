@@ -8,26 +8,34 @@ ProgressBar::ProgressBar()
 ProgressBar::~ProgressBar()
 {
 	DeleteGO(k_spriteRender);
+	DeleteGO(p_spriteRender);
 }
 
 bool ProgressBar::Start()
 {
 	CVector2 Pivot = { 0.0,0.5 };
 	k_spriteRender = NewGO<prefab::CSpriteRender>(0);//唐揚げ
+	k_spriteRender->Init(L"sprite/赤.dds", 1, 30.0f);
 	k_spriteRender->SetPivot(Pivot);//唐揚げピボット
 
 	p_spriteRender = NewGO<prefab::CSpriteRender>(0);//ポテト
+	p_spriteRender->Init(L"sprite/悲しみ.dds", 1, 30.0f);
 	p_spriteRender->SetPivot(Pivot);//ポテトピボット
 
 
-
+	k_spriteRender->SetPosition(k_position);
+	p_spriteRender->SetPosition(p_position);
 	return true;
 }
 
 void ProgressBar::Update()
 {
-	k_spriteRender->Init(L"sprite/赤.dds", x, 30.0f);
-	p_spriteRender->Init(L"sprite/悲しみ.dds", y, 30.0f);
+
+	CVector3 scale = CVector3::One;
+	scale.x *= x;
+	k_spriteRender->SetScale(scale);
+	p_spriteRender->SetScale(scale);
+
 	x += 3.0;
 	y += 2.0;
 	if (x >= 500) {

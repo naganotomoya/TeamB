@@ -28,6 +28,32 @@ bool ProgressBar::Start()
 	return true;
 }
 
+void ProgressBar::PostRender(CRenderContext& rc)
+{
+	wchar_t text[256];
+	swprintf_s(text, L"完成品%d品", k);
+	m_font.Begin(rc);
+	m_font.Draw(
+		text,
+		{ -580.0,220.0 },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		0.0f,
+		1.0f,
+		{ 0.0f, 1.0f }
+	);
+
+	swprintf_s(text, L"お客様%d人", p);
+	m_font.Draw(
+		text,
+		{ -580.0,180.0 },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		0.0f,
+		1.0f,
+		{ 0.0f, 1.0f }
+	);
+	m_font.End(rc);
+}
+
 void ProgressBar::Update()
 {
 

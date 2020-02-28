@@ -6,6 +6,7 @@ public:
 	~ProgressBar();
 	bool Start();
 	void Update();
+	void PostRender(CRenderContext& rc);
 private:
 	prefab::CSpriteRender* k_spriteRender = nullptr;//唐揚げバー
 	prefab::CSpriteRender* p_spriteRender = nullptr;//ポテトバー
@@ -19,5 +20,8 @@ private:
 
 	float x = 1.0f;//赤バー初期値
 	float y = 1.0f;//水玉初期値
+
+	CFont m_font;
+	int k = 0.0, p = 0.0;
 };
 

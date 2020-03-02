@@ -35,6 +35,12 @@
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="SceneKaraage.cpp" />
+    <ClCompile Include="ScenePoteto.cpp" />
+    <ClCompile Include="SceneDrink.cpp" />
+    <ClCompile Include="SceneMorituke.cpp" />
+    <ClCompile Include="SceneAraimono.cpp" />
+    <ClCompile Include="SceneKaikei.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -46,6 +52,12 @@
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="SceneKaraage.h" />
+    <ClInclude Include="ScenePoteto.h" />
+    <ClInclude Include="SceneDrink.h" />
+    <ClInclude Include="SceneMorituke.h" />
+    <ClInclude Include="SceneAraimono.h" />
+    <ClInclude Include="SceneKaikei.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

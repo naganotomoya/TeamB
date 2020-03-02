@@ -1767,6 +1767,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="SceneAraimono.cpp" />
+    <ClCompile Include="SceneDrink.cpp" />
+    <ClCompile Include="SceneKaikei.cpp" />
+    <ClCompile Include="SceneKaraage.cpp" />
+    <ClCompile Include="SceneMorituke.cpp" />
+    <ClCompile Include="ScenePoteto.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|Win32'">Create</PrecompiledHeader>
@@ -1795,6 +1801,12 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
+    <ClInclude Include="SceneAraimono.h" />
+    <ClInclude Include="SceneDrink.h" />
+    <ClInclude Include="SceneKaikei.h" />
+    <ClInclude Include="SceneKaraage.h" />
+    <ClInclude Include="SceneMorituke.h" />
+    <ClInclude Include="ScenePoteto.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ResourceCompile Include="Game.rc" />

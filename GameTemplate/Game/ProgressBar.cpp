@@ -14,7 +14,7 @@ ProgressBar::~ProgressBar()
 bool ProgressBar::Start()
 {
 	CVector2 Pivot = { 0.0,0.5 };
-	k_spriteRender = NewGO<prefab::CSpriteRender>(0);//唐揚げ
+	k_spriteRender = NewGO<prefab::CSpriteRender>(1);//唐揚げ
 	k_spriteRender->Init(L"sprite/赤.dds", 1, 30.0f);
 	k_spriteRender->SetPivot(Pivot);//唐揚げピボット
 
@@ -22,9 +22,12 @@ bool ProgressBar::Start()
 	p_spriteRender->Init(L"sprite/悲しみ.dds", 1, 30.0f);
 	p_spriteRender->SetPivot(Pivot);//ポテトピボット
 
+	waku = NewGO<prefab::CSpriteRender>(0);//枠
+	waku->Init(L"sprite/hpmp_bar.dds", 500, 50.0f);
 
-	k_spriteRender->SetPosition(k_position);
-	p_spriteRender->SetPosition(p_position);
+	k_spriteRender->SetPosition(k_position);//唐揚げポジション
+	p_spriteRender->SetPosition(p_position);//ポテトポジション
+	waku->SetPosition(w_position);
 	return true;
 }
 
@@ -82,6 +85,6 @@ void ProgressBar::Update()
 		y = 0.0f;
 	}
 	
-	k_spriteRender->SetPosition(k_position);
-	p_spriteRender->SetPosition(p_position);
+	k_spriteRender->SetPosition(k_position);//唐揚げポジション
+	p_spriteRender->SetPosition(p_position);//ポテトポジション
 }

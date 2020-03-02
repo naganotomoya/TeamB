@@ -1863,6 +1863,9 @@
     <ImageContentTask Include="Assets\sprite\Phaikei\Morituke.png" />
     <ImageContentTask Include="Assets\sprite\Phaikei\Poteto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\hpmp_bar.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

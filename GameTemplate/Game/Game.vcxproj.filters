@@ -23,6 +23,9 @@
     <Filter Include="Assets\modelData\Hand">
       <UniqueIdentifier>{86999868-5a6b-4773-bc03-fce9419b7821}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\sprite\Phaikei">
+      <UniqueIdentifier>{8b6e978f-e8bb-4908-bb07-5e604fd04ca0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -56,7 +59,7 @@
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx">
       <Filter>Assets\modelData\Hand</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\Hand\LHand.FBX">
+    <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx">
       <Filter>Assets\modelData\Hand</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -75,6 +78,24 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\悲しみ.jpg">
       <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Araimono.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Drink.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Kaikei.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\karaage.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Morituke.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Poteto.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

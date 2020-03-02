@@ -18,6 +18,7 @@ Game::~Game()
 	DeleteGO(m_spriteRender);
 	DeleteGO(Progressbar);
 	DeleteGO(m_player);
+	DeleteGO(m_camera);
 }
 bool Game::Start()
 {
@@ -33,8 +34,8 @@ bool Game::Start()
 	//m_spriteRender->Init(L"sprite/phaikei.dds", 1280.0f, 720.0f);
 
 	Progressbar = NewGO<ProgressBar>(0);
-	m_player = NewGO<Player>(0);
-	m_camera = NewGO<Camera>(0);
+	m_player = NewGO<Player>(0,"player");
+	m_camera = NewGO<Camera>(0,"camera");
 
 	return true;
 }

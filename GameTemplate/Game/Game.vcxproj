@@ -1800,7 +1800,7 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\Hand\LHand.FBX" />
+    <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
@@ -1854,6 +1854,14 @@
     <CustomBuild Include="Assets\effect\Poteto.efk">
       <FileType>Document</FileType>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Araimono.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Drink.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Kaikei.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\karaage.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Morituke.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Poteto.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

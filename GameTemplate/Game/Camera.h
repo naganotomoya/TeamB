@@ -10,6 +10,13 @@ public:
 	{
 		return SceneNum;
 	}
+	//今のシーンを返す。
+	//0からあげ
+	//1ポテト
+	//2ドリンク
+	//3もりつけ
+	//4洗い物
+	//5会計
 	int ReturnNowScene()
 	{
 		return NowScene;
@@ -26,9 +33,9 @@ private:
 	{
 		Karaage,	//0
 		Poteto,		//1
-		Drink,
-		Morituke,
-		Araimono,
+		Drink,		//2
+		Morituke,	//3
+		Araimono,	//4
 		Kaikei,		//5
 		SceneNum
 	};

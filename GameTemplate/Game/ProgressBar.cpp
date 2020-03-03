@@ -9,6 +9,8 @@ ProgressBar::~ProgressBar()
 {
 	DeleteGO(k_spriteRender);
 	DeleteGO(p_spriteRender);
+	DeleteGO(waku);
+	DeleteGO(waku_01);
 }
 
 bool ProgressBar::Start()
@@ -18,16 +20,20 @@ bool ProgressBar::Start()
 	k_spriteRender->Init(L"sprite/赤.dds", 1, 30.0f);
 	k_spriteRender->SetPivot(Pivot);//唐揚げピボット
 
-	p_spriteRender = NewGO<prefab::CSpriteRender>(0);//ポテト
+	p_spriteRender = NewGO<prefab::CSpriteRender>(1);//ポテト
 	p_spriteRender->Init(L"sprite/悲しみ.dds", 1, 30.0f);
 	p_spriteRender->SetPivot(Pivot);//ポテトピボット
 
 	waku = NewGO<prefab::CSpriteRender>(0);//枠
 	waku->Init(L"sprite/hpmp_bar.dds", 500, 50.0f);
 
+	waku_01 = NewGO<prefab::CSpriteRender>(0);//枠
+	waku_01->Init(L"sprite/hpmp_bar.dds", 500, 50.0f);
+
 	k_spriteRender->SetPosition(k_position);//唐揚げポジション
 	p_spriteRender->SetPosition(p_position);//ポテトポジション
-	waku->SetPosition(w_position);
+	waku->SetPosition(w_position);//唐揚げ枠
+	waku_01->SetPosition(w01_position);//ポテト枠
 	return true;
 }
 
@@ -38,7 +44,7 @@ void ProgressBar::PostRender(CRenderContext& rc)
 	m_font.Begin(rc);
 	m_font.Draw(
 		text,
-		{ -580.0,220.0 },
+		{ -580.0,200.0 },
 		{ 0.0f, 0.0f, 0.0f, 1.0f },
 		0.0f,
 		1.0f,
@@ -48,7 +54,7 @@ void ProgressBar::PostRender(CRenderContext& rc)
 	swprintf_s(text, L"お客様%d人", p);
 	m_font.Draw(
 		text,
-		{ -580.0,180.0 },
+		{ -580.0,150.0 },
 		{ 0.0f, 0.0f, 0.0f, 1.0f },
 		0.0f,
 		1.0f,
@@ -84,6 +90,12 @@ void ProgressBar::Update()
 		effect->SetPosition(effe);
 		y = 0.0f;
 	}
+
+	//if (p > 5) {
+	//	bgm = NewGO<prefab::CSoundSource>(0);	//CSoundSourceのインスタンスを作成。
+	//	bgm->Init("sound/normalBGM.wav");		//音声ファイルをロード。
+	//	bgm->Play(true);
+	//}
 	
 	k_spriteRender->SetPosition(k_position);//唐揚げポジション
 	p_spriteRender->SetPosition(p_position);//ポテトポジション

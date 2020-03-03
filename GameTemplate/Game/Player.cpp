@@ -64,22 +64,39 @@ void Player::Move()
 	if (Pad(0).IsTrigger(enButtonRB1)) {
 		if (nowscene != (scenenum - 1)) {
 			PlusXPosition(-CX);
+			tyuusin += -CX;
 		}
 		else {
 			SetXPosition(CX);
+			tyuusin += CX * (scenenum - 1);
 		}
 	}
 	if (Pad(0).IsTrigger(enButtonLB1)) {
 		if (nowscene != 0) {
 			PlusXPosition(CX);
+			tyuusin += CX;
 		}
 		else {
 			SetXPosition(-CX);
+			tyuusin += -CX * (scenenum - 1);
 		}
 	}
 	//¶‰E
 	m_Lposition.x -= Pad(0).GetLStickXF() * movespeed;
 	m_Lposition.y += Pad(0).GetLStickYF() * movespeed;
+	//ˆÚ“®§ŒÀ
+	if (m_Lposition.x >= tyuusin + 100) {
+		(m_Lposition.x = tyuusin + 100);
+	}
+	if (m_Lposition.x <= tyuusin - 100) {
+		(m_Lposition.x = tyuusin - 100);
+	}
+	if (m_Lposition.y >= 60.0f) {
+		m_Lposition.y = 60.0f;
+	}
+	if (m_Lposition.y <= -60.0f) {
+		m_Lposition.y = -60.0f;
+	}
 }
 
 void Player::Update()

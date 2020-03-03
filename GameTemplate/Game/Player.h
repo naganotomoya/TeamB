@@ -16,6 +16,31 @@ public:
 		m_Lposition.x += x;
 	}
 
+	//右手の位置を返す
+	CVector3 ReturnRPlayerPosition()
+	{
+		return m_Lposition;
+	}
+	//動かない方を動かす
+	void SetLPosition(CVector3 pos)
+	{
+		m_Lposition = pos;
+	}
+	//動かない方の位置を返す
+	CVector3 ReturnLPlayerPosition()
+	{
+		return m_Rposition;
+	}
+	//左手のアニメーション
+	void LgripAnimation()
+	{
+		m_Rhand->PlayAnimation(rhandAC_grip);
+	}
+	void LopenAnimation()
+	{
+		m_Rhand->PlayAnimation(rhandAC_open);
+	}
+
 private:
 	Camera* m_camera = nullptr;
 	enum RHandAC {
@@ -39,4 +64,5 @@ private:
 	float CX = 1280.0f;	//移動する距離
 	int scenenum = 0;	//シーンの数
 	int nowscene = 0;		//今のシーン番号
+	float tyuusin = 0.0f;
 };

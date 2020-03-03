@@ -8,7 +8,6 @@ public:
 	bool Start();
 	void SetXPosition(float x);
 	void Animation();
-	void Move();
 	void Update();
 	void PlusXPosition(float x)
 	{
@@ -16,6 +15,10 @@ public:
 		m_Lposition.x += x;
 	}
 
+	//移動
+	//キャラと一緒に移動させたいときに
+	//引数にそのpositionを入れて使う。
+	void Move(CVector3& pos);
 	//右手の位置を返す
 	CVector3 ReturnRPlayerPosition()
 	{

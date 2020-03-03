@@ -57,7 +57,27 @@ void Player::Animation()
 	}
 }
 
-void Player::Move()
+void Player::Move(CVector3& pos)
+{
+	//¶‰E
+	pos.x -= Pad(0).GetLStickXF() * movespeed;
+	pos.y += Pad(0).GetLStickYF() * movespeed;
+	//ˆÚ“®§ŒÀ
+	if (pos.x >= tyuusin + 100) {
+		(pos.x = tyuusin + 100);
+	}
+	if (pos.x <= tyuusin - 100) {
+		(pos.x = tyuusin - 100);
+	}
+	if (pos.y >= 60.0f) {
+		pos.y = 60.0f;
+	}
+	if (pos.y <= -60.0f) {
+		pos.y = -60.0f;
+	}
+}
+
+void Player::Update()
 {
 	//ƒJƒƒ‰‚ªˆÚ“®‚·‚é‚Æ‚«‚Ìˆ—
 	nowscene = m_camera->ReturnNowScene();
@@ -81,28 +101,8 @@ void Player::Move()
 			tyuusin += -CX * (scenenum - 1);
 		}
 	}
-	//¶‰E
-	m_Lposition.x -= Pad(0).GetLStickXF() * movespeed;
-	m_Lposition.y += Pad(0).GetLStickYF() * movespeed;
-	//ˆÚ“®§ŒÀ
-	if (m_Lposition.x >= tyuusin + 100) {
-		(m_Lposition.x = tyuusin + 100);
-	}
-	if (m_Lposition.x <= tyuusin - 100) {
-		(m_Lposition.x = tyuusin - 100);
-	}
-	if (m_Lposition.y >= 60.0f) {
-		m_Lposition.y = 60.0f;
-	}
-	if (m_Lposition.y <= -60.0f) {
-		m_Lposition.y = -60.0f;
-	}
-}
-
-void Player::Update()
-{
 	Animation();
-	Move();
+	Move(m_Lposition);
 	m_Rhand->SetPosition(m_Rposition);
 	m_Lhand->SetPosition(m_Lposition);
 }

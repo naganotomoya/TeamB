@@ -72,26 +72,27 @@ void ProgressBar::Update()
 	p_spriteRender->SetScale(scale);
 
 	x += 3.0;
-	y += 2.0;
+	
 	if (x >= 500) {
+		/////唐揚げエフェクト/////
 		prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
-		CVector3 scale = { 10.0f,1.0f,10.0f };
+		CVector3 scale = { 3.0f,1.0f,3.0f };
 		effect->SetScale(scale);
 		effect->Play(L"effect/Bon.efk");
 		effect->SetPosition(effecto);
+		/////////////////////////
+
+		/////ポテトエフェクト/////
+		prefab::CEffect* effectoo = NewGO<prefab::CEffect>(0);
+		CVector3 scales = { 5.0f,1.0f,5.0f };
+		effectoo->SetScale(scales);
+		effectoo->Play(L"effect/Poteto.efk");
+		effectoo->SetPosition(effe);
+		/////////////////////////
 		x = 0.0f;
 	}
 
-	if (y >= 300) {
-		prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
-		CVector3 scale = { 5.0f,1.0f,5.0f };
-		effect->SetScale(scale);
-		effect->Play(L"effect/Poteto.efk");
-		effect->SetPosition(effe);
-		y = 0.0f;
-	}
-
-	//if (p > 5) {
+	//if (p > 5) {								//お客様が５人超えたら
 	//	bgm = NewGO<prefab::CSoundSource>(0);	//CSoundSourceのインスタンスを作成。
 	//	bgm->Init("sound/normalBGM.wav");		//音声ファイルをロード。
 	//	bgm->Play(true);

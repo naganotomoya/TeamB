@@ -19,7 +19,7 @@ private:
 	CVector3 w01_position = { -340.0,230.0,0.0 };//枠の位置
 	
 
-	CVector3 effecto = { 15.0,50.0,0.0 };//唐揚げエフェ位置
+	CVector3 effecto = { 12.0,48.0,0.0 };//唐揚げエフェ位置
 	CVector3 effe = { 10.0,30.0,0.0 };//ポテトエフェ位置
 
 	float x = 1.0f;//赤バー初期値

@@ -1814,6 +1814,10 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
+    <MeshContentTask Include="Assets\modelData\tongs.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
   <ItemGroup>
@@ -1877,6 +1881,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\hpmp_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Abura.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

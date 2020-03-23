@@ -89,6 +89,8 @@
     <MeshContentTask Include="Assets\modelData\tongs.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

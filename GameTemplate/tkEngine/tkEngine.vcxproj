@@ -1048,6 +1048,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="..\Game\Assets\modelData\dorinkuba\dorinkuba.FBX" />
+    <MeshContentTask Include="..\Game\Assets\modelData\koop1.FBX" />
+    <MeshContentTask Include="..\Game\Assets\modelData\koop2.FBX" />
     <MeshContentTask Include="Assets\modelData\preset\vector.FBX">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|x64'">$(SolutionDir)\Assets\modelData\preset\%(Filename).cmo</ContentOutput>

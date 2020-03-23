@@ -1812,6 +1812,8 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
     <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />

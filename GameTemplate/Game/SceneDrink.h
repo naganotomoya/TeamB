@@ -10,12 +10,22 @@ public:
 	void Update();
 
 	//スプライトレンダラー
-	prefab::CSkinModelRender* m_skinModelRenderer = nullptr;
+	//prefab::CSkinModelRender* m_skinModelRenderer = nullptr;
 
 	//移動
-	CVector3 m_position = CVector3::Zero;
+	CVector3 m_position = { -2450.0f,-50.0f,5.0f };
+	CVector3 m_Pposition = CVector3::Zero;
+
+	//スキンモデルレンダラー
+	prefab::CSkinModelRender* m_kop = nullptr;	
+	prefab::CSkinModelRender* m_db = nullptr;
+
+	
+	//移動速度
+	//CVector3 m_moveSpeed = CVector3::Zero;
+	
+	int m_state = 0;
 
 	Player* player = nullptr;
 	//SceneDrink* koop1 = nullptr;
 };
-

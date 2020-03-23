@@ -769,5 +769,8 @@
     <MeshContentTask Include="..\Game\Assets\modelData\koop2.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="..\Game\Assets\modelData\dorinkuba\dorinkuba.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

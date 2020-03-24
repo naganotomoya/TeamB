@@ -1819,6 +1819,8 @@
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
+    <MeshContentTask Include="Assets\modelData\Poteto\flyer.FBX" />
+    <MeshContentTask Include="Assets\modelData\Poteto\poteto.FBX" />
     <MeshContentTask Include="Assets\modelData\tongs.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>

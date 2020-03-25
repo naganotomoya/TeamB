@@ -1,22 +1,41 @@
 #include "stdafx.h"
 #include "ScenePoteto.h"
+#include "Player.h"
+#include "Camera.h"
+
 ScenePoteto::ScenePoteto()
 {
 }
+
 ScenePoteto::~ScenePoteto()
 {
+	DeleteGO(m_Poteto);
+	DeleteGO(m_osara);
 }
 
 bool ScenePoteto::Start()
 {
+	m_camera = FindGO<Camera>("camera");
+	m_player = FindGO<Player>("player");
 	//ポテト
 	m_Poteto = NewGO<prefab::CSkinModelRender>(0, "Poteto");
-	m_Poteto->Init(L"modelData/poteto.cmo");
-	m_Pposition = { 70.0f,0.0f,0.0f};
+	m_Poteto->Init(L"modelData/Poteto/poteto.cmo");
+	m_Pposition = { -1230.0f,0.0f,0.0f};
 	m_Poteto->SetPosition(m_Pposition);
+	//フライヤー
+	m_Flyer = NewGO<prefab::CSkinModelRender>(0, "Flyer");
+	m_Flyer->Init(L"modelData/Poteto/flyer.cmo");
+	FlyQuater.SetRotationDeg(CVector3::AxisX, 90.0f);
+	m_Flyer->SetRotation(FlyQuater);
+	m_Fposition = { -1280.0f,0.0f,0.0f };
+	m_Flyer->SetPosition(m_Fposition);
 	//お皿
 	m_osara = NewGO<prefab::CSkinModelRender>(0, "osara");
 	m_osara->Init(L"modelData/KaraageS/sara.cmo");
+	m_Srotation.SetRotationDeg(CVector3::AxisX, 90.0f);
+	m_osara->SetRotation(m_Srotation);
+	m_Oposition = { -1340.0f,0.0f,0.0f };
+	m_osara->SetPosition(m_Oposition);
 
 	//油
 	//2D表示するときそのままだとでないと思うから3D表示にして反転させてください。
@@ -33,6 +52,28 @@ bool ScenePoteto::Start()
 	m_abura->SetPosition(m_aburaposition);
 	m_abura->SetRotation(Hanten);					//反転を適応
 	return true;
+}
+
+void ScenePoteto::PotetoMove(CVector3& pos)
+{
+	//PPdiff = m_Tposition - pos;
+	////ポテトとプレイヤーの手の距離が近くて、
+	////Bボタンが押されているとき。
+	////アニメーション追加した時にその処理も追加
+	////アニメーションが再生されている時という処理追加したら
+	////閉じるときしかつかめないように出来るはず。
+	//if (PPdiff.Length() <= 8.0f &&
+	//	Pad(0).IsPress(enButtonB)) {
+	//	if (pushPote == false) {
+	//		pushPote = true;
+	//	}
+	//	//m_player->Move()はプレイヤークラスに定義宣言
+	//	//プレイヤーと同じ動きをする。
+	//	//引数に好きな変数を入れたらどこでも使える。
+	//	if (pushPote == true) {
+	//		m_player->Move(pos);
+	//	}
+	//}
 }
 
 void ScenePoteto::Update()

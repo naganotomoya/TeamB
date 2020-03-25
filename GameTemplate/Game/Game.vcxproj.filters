@@ -29,6 +29,9 @@
     <Filter Include="Assets\modelData\KaraageS">
       <UniqueIdentifier>{365ebbbc-8730-4a06-b530-b57d9c63c258}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\Poteto">
+      <UniqueIdentifier>{36deac88-baae-41a5-a41f-90c030dc9a5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -91,6 +94,12 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
     <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
+    <MeshContentTask Include="Assets\modelData\Poteto\flyer.FBX">
+      <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Poteto\poteto.FBX">
+      <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

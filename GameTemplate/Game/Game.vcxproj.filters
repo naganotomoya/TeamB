@@ -100,6 +100,15 @@
     <MeshContentTask Include="Assets\modelData\Poteto\poteto.FBX">
       <Filter>Assets\modelData\Poteto</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Poteto\huraiya-2.FBX">
+      <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Poteto\huraiya-3.FBX">
+      <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Poteto\huraiya-4.FBX">
+      <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">

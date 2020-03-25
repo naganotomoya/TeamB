@@ -10,6 +10,12 @@ public:
 	void PotetoMove(CVector3& pos);
 	void Update();
 private:
+	enum State{
+		State_None,				//何もしない状態.
+		State_PickPoteto,		//ポテトを取りに行く状態。
+		State_TranlateFlyer,	//ポテトをフライヤーまで運ぶ状態。
+	};
+	State m_state = State_None;
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
 	prefab::CSkinModelRender* m_Poteto = nullptr;		//ポテトスキンモデル。
@@ -19,7 +25,7 @@ private:
 
 
 	
-
+	CVector3 Yup = CVector3::Zero;					//プレイヤーのYをちょっと上にしたやつ
 	CQuaternion Hanten;								//回転
 	CVector3 m_aburaposition = CVector3::Zero;		//油のポジション
 

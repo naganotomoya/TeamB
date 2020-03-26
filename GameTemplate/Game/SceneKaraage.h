@@ -37,6 +37,7 @@ private:
 	CVector3 m_Tposition = CVector3::Zero;			//トングのポジション。
 	CVector3 m_Kposition = CVector3::Zero;			//生からあげのポジション
 	CVector3 m_Knseiposition = CVector3::Zero;			//完成からあげのポジション
+	CVector3 m_KnseiStartposition = { 0.0f,0.0f,-300.0f };			//完成からあげの初期ポジション
 	CVector3 m_Sposition = CVector3::Zero;			//お皿のポジション
 	CQuaternion m_Trotation = CQuaternion::Identity;	//トング回転。
 	CQuaternion m_Srotation = CQuaternion::Identity;	//おさえあ回転。
@@ -54,10 +55,11 @@ private:
 
 	int KanseiKosuu = 0;		//完成した個数
 	int nowscene = 0;	//今のシーンこれがないといつでも動いちゃう
+	float OverS = 0;		//からあげをaげる秒数
 
 
-	//prefab::CFontRender* m_fontkansei = nullptr;
-	//wchar_t text[256];
+	/*prefab::CFontRender* m_fontkansei = nullptr;
+	wchar_t text[256];*/
 };
 
 

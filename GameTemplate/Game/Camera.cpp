@@ -26,7 +26,7 @@ bool Camera::Start()
 	scene[Karaage].PxPos = 0.0f;
 	m_spriteKaraage = NewGO<prefab::CSpriteRender>(0);
 	m_spriteKaraage->Init(
-		L"sprite/Phaikei/karaage.dds",
+		L"sprite/Phaikei/Karaageheikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true
@@ -62,7 +62,7 @@ bool Camera::Start()
 	scene[Morituke].PxPos = scene[Morituke - 1].TxPos - CX;
 	m_spriteMorituke = NewGO<prefab::CSpriteRender>(0);
 	m_spriteMorituke->Init(
-		L"sprite/Phaikei/Morituke.dds",
+		L"sprite/Phaikei/moritukehaikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true

@@ -29,6 +29,9 @@
     <Filter Include="Assets\modelData\KaraageS">
       <UniqueIdentifier>{365ebbbc-8730-4a06-b530-b57d9c63c258}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\MoritukeS">
+      <UniqueIdentifier>{9df22b22-7b70-43cf-ab5f-73e17896207b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -44,6 +47,7 @@
     <ClCompile Include="SceneMorituke.cpp" />
     <ClCompile Include="SceneAraimono.cpp" />
     <ClCompile Include="SceneKaikei.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -61,6 +65,7 @@
     <ClInclude Include="SceneMorituke.h" />
     <ClInclude Include="SceneAraimono.h" />
     <ClInclude Include="SceneKaikei.h" />
+    <ClInclude Include="GameEnd.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -88,6 +93,15 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\tongs.FBX">
       <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu2.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +142,18 @@
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\Phaikei\Abura.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Manaita.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Cutkyabetu.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Karaageheikei.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\moritukehaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
   </ItemGroup>

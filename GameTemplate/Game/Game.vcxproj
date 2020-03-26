@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
@@ -1798,6 +1799,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEnd.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
@@ -1817,6 +1819,9 @@
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
+    <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX" />
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu.FBX" />
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu2.FBX" />
     <MeshContentTask Include="Assets\modelData\tongs.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
@@ -1884,6 +1889,16 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei\Abura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Manaita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Cutkyabetu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Karaageheikei.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\moritukehaikei.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

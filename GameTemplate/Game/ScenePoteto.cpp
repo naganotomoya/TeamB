@@ -10,7 +10,9 @@ ScenePoteto::ScenePoteto()
 ScenePoteto::~ScenePoteto()
 {
 	DeleteGO(m_Poteto);
+	DeleteGO(m_Flyer);
 	DeleteGO(m_osara);
+	DeleteGO(m_abura);
 }
 
 bool ScenePoteto::Start()
@@ -57,49 +59,73 @@ bool ScenePoteto::Start()
 	return true;
 }
 
-void ScenePoteto::PotetoMove(CVector3& pos)
-{
-	PPdiff = m_Pposition - pos;
-	//ポテトとプレイヤーの手の距離が近くて、
-	//Bボタンが押されているとき。
-	//アニメーション追加した時にその処理も追加
-	//アニメーションが再生されている時という処理追加したら
-	//閉じるときしかつかめないように出来るはず。
-	if (PPdiff.Length() <= 8.0f &&
-		Pad(0).IsPress(enButtonB)) {
-		if (pushPote == false) {
-			pushPote = true;
-		}
-		//m_player->Move()はプレイヤークラスに定義宣言
-		//プレイヤーと同じ動きをする。
-		//引数に好きな変数を入れたらどこでも使える。
-		if (pushPote == true) {
-			m_player->Move(pos);
-		}
-	}
-}
 
 void ScenePoteto::Update()
 {
+	//なにもない状態
 	if (m_state == State_None) {
 		if (Pad(0).IsPress(enButtonB)) {
 			m_state = State_PickPoteto;
 		}
 	}
+
+	//ポテトを持っている状態
 	else if (m_state == State_PickPoteto) {
 		//②手とポテトの距離が近くなったら、
+
+		//プレイヤーの手とポテトの距離を測定
 		PPdiff = m_player->ReturnRPlayerPosition() - m_Pposition;
-		if (PPdiff.Length() <= 30.0f &&
-			Pad(0).IsPress(enButtonB)) {
-			/*Yup = m_player->ReturnRPlayerPosition();
-			Yup.y += 15.0f;
-			m_Poteto->SetPosition(Yup);*/
+		//プレイヤーの手の当たり判定計算
+		float len = PPdiff.Length();
+		//距離３０以下でBボタンが押されたら
+		if (len <= 30.0f && Pad(0).IsPress(enButtonB)) {
 			m_player->Move(m_Pposition);
-			//m_state = State_TranlateFlyer;
+			m_Poteto->SetPosition(m_Pposition);
+		}
+
+		//ポテトとお皿の距離が近くなったら
+		PTdiff = m_Pposition - m_Oposition;
+		//当たり判定
+		len = PTdiff.Length();
+		//IsActive()はDeleteGOされたらFalse　NewGOされたらTrueなるフラグ
+		if (len <= 20.0f && !Pad(0).IsPress(enButtonB) && m_Poteto->IsActive() == true) {
+			bool Ispoteto = true;
+			//お皿とポテトの距離が20.0以下でBボタンが押されてなくて、ポテトのアクティブがTrueなら
+			m_state = State_TranlateFlyer;
+		}
+		//ポテトと油の距離が近くなったら
+		APdiff = m_Pposition - m_aburaposition;
+		float Len = APdiff.Length();
+		if (Len <= 20.0f && !Pad(0).IsPress(enButtonB)) {
+			PoteFly += GameTime().GetFrameDeltaTime();
+			if (PoteFly >= 4) {
+				//揚げたてポテトをNewGOする
+			}
 		}
 	}
-	else if (m_state == State_TranlateFlyer) {
 
+	//ポテトを盛り付ける状態
+	else if (m_state == State_TranlateFlyer) {
+		//ステートが盛り付ける状態なら
+		//ポテトのオブジェクトを削除
+		DeleteGO(m_Poteto);
+		//ステートを何もしてない状態に変更
+		m_state = State_None;
 	}
-	m_Poteto->SetPosition(m_Pposition);
+
+	//else if (m_state == State_TranlateFlyer) {
+		//ポテトとお皿の距離が近くなったら
+		//PTdiff = m_Pposition - m_Oposition;
+		//float len = PTdiff.Length();
+		//if (PTdiff.Length() <= 20.0f && !Pad(0).IsPress(enButtonB)) {
+		//	int a = 0;
+		//	if (m_Poteto != nullptr) {
+		//		DeleteGO(m_Poteto);
+		//		m_Poteto = nullptr;
+		//	}
+
+		//}
+	//}
+
+
 }

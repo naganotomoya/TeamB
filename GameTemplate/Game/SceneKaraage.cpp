@@ -21,25 +21,25 @@ bool SceneKaraage::Start()
 {
 	m_camera = FindGO<Camera>("camera");
 	m_player = FindGO<Player>("player");
-	m_StartPos = { 70.0f,0.0f,0.0f };
-
+	//トング
 	m_tong = NewGO<prefab::CSkinModelRender>(0, "tong");
 	m_tong->Init(L"modelData/tongs.cmo");
 	//モデル調整したら下のは多分いらない。
 	m_Trotation.SetRotationDeg(CVector3::AxisX, 180.0f);
 	m_tong->SetRotation(m_Trotation);
 	m_tong->SetScale({ 2.0f,2.0f,2.0f });
-
+	//生のからあげ
 	m_nama = NewGO<prefab::CSkinModelRender>(0, "nama");
 	m_nama->Init(L"modelData/KaraageS/Nama.cmo");
-	m_Kposition = { 70.0f,0.0f,0.0f };
+	m_Kposition = { 74.0f,0.0f,-5.0f };
+	m_StartPos = m_Kposition;
 	m_nama->SetPosition(m_Kposition);
-
+	//お皿
 	m_osara = NewGO<prefab::CSkinModelRender>(0, "osara");
 	m_osara->Init(L"modelData/KaraageS/sara.cmo");
 	m_Srotation.SetRotationDeg(CVector3::AxisX, 90.0f);
 	m_osara->SetRotation(m_Srotation);
-	m_Sposition = { -60.0f,0.0f,0.0f };
+	m_Sposition = { -60.0f,0.0f,-10.0f };
 	m_osara->SetPosition(m_Sposition);
 
 	//油
@@ -56,7 +56,11 @@ bool SceneKaraage::Start()
 	m_aburaposition = { -10.0f,0.0f,-20.0f };
 	m_abura->SetPosition(m_aburaposition);
 	m_abura->SetRotation(Hanten);					//反転を適応
-
+	//完成したからあげ
+	m_kansei = NewGO<prefab::CSkinModelRender>(0, "kansei");
+	m_kansei->Init(L"modelData/KaraageS/Kansei.cmo");
+	m_Knseiposition = m_KnseiStartposition;
+	m_kansei->SetPosition(m_Knseiposition);
 
 	//m_fontkansei = NewGO<prefab::CFontRender>(0);
 
@@ -112,9 +116,10 @@ void SceneKaraage::KaraageSyori()
 				pushkara = false;
 			}
 			//からあげとトングが離れるか、Bを離した時
-			if (KTdiff.Length() >= 8.0f ||
+			if (KTdiff.Length() >= 20.0f ||
 				!Pad(0).IsPress(enButtonB)) {
 				KAdiff = m_aburaposition - m_Kposition;
+				pushkara = false;
 				//油との距離が近ければ揚げ始める。
 				if (KAdiff.Length() <= 35.0f) {
 					fry = true;
@@ -131,6 +136,15 @@ void SceneKaraage::KaraageSyori()
 	}
 	//完成したからあげがあれば
 	else {
+		//OverS += GameTime().GetFrameDeltaTime();
+		if (pushkara == false
+			&& OverS >= 10) {
+			m_Knseiposition = m_KnseiStartposition;
+			m_kansei->SetPosition(m_Knseiposition);
+			pushkara = false;
+			kansei = false;
+			OverS = 0;
+		}
 		//完成したからあげを動かすようにする。
 		KaraageMove(m_Knseiposition);
 		m_kansei->SetPosition(m_Knseiposition);
@@ -140,26 +154,32 @@ void SceneKaraage::KaraageSyori()
 			//シーンを変えたらそのまま消す
 			if (Pad(0).IsTrigger(enButtonRB1) ||
 				Pad(0).IsTrigger(enButtonLB1)) {
-				DeleteGO(m_kansei);
+				m_Knseiposition = m_KnseiStartposition;
+				m_kansei->SetPosition(m_Knseiposition);
+				OverS = 0;
 				pushkara = false;
 				kansei = false;
 			}
 			//からあげとトングが離れるか、Bを離した時
-			if (KTdiff.Length() >= 8.0f ||
+			if (KTdiff.Length() >= 20.0f ||
 				!Pad(0).IsPress(enButtonB)) {
 				KSdiff = m_Sposition - m_Knseiposition;
 				//お皿の上で離したら
 				//完成個数を増やす。
 				if (KSdiff.Length() <= 20.0f) {
 					pushkara = false;
-					DeleteGO(m_kansei);
+					m_Knseiposition = m_KnseiStartposition;
+					m_kansei->SetPosition(m_Knseiposition);
+					OverS = 0;
 					KanseiKosuu++;
 					kansei = false;
 				}
 				//遠ければ
 				else {
 					//完成個数は増やさずに消す。
-					DeleteGO(m_kansei);
+					m_Knseiposition = m_KnseiStartposition;
+					m_kansei->SetPosition(m_Knseiposition);
+					OverS = 0;
 					pushkara = false;
 					kansei = false;
 				}
@@ -180,10 +200,8 @@ void SceneKaraage::FrySyori()
 		pushkara = false;
 		KaraageS = 0.0f;
 	}
-	if (KaraageS >= 3) {
+	if (KaraageS >= 10) {
 		//完成したからあげを出す
-		m_kansei = NewGO<prefab::CSkinModelRender>(0, "kansei");
-		m_kansei->Init(L"modelData/KaraageS/Kansei.cmo");
 		m_Knseiposition = m_Kposition;
 		m_kansei->SetPosition(m_Knseiposition);
 		kansei = true;
@@ -202,9 +220,13 @@ void SceneKaraage::Update()
 		//カーソルをReturnMowSceneに持っていったらどの番号がどのシーンかわかります。
 	nowscene = m_camera->ReturnNowScene();
 	if (nowscene == 0) {
+		m_player->RgripAnimation();
 		TongMove();
 		KaraageSyori();
-
+	}
+	if (Pad(0).IsTrigger(enButtonRB1) ||
+		Pad(0).IsTrigger(enButtonLB1)) {
+		m_player->RopenAnimation();
 	}
 	//変数はシーンがからあげでなくても動かす
 	if (fry == true) {
@@ -212,7 +234,9 @@ void SceneKaraage::Update()
 		KaraageS += GameTime().GetFrameDeltaTime();
 		FrySyori();
 	}
-
+	if (kansei == true) {
+		OverS += GameTime().GetFrameDeltaTime();
+	}
 	//m_nama->SetEmissionColor({ 1.0f,1.0f,1.0f });
 	/*CVector3 colar;
 	colar.x = 0.0f;

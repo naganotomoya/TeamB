@@ -14,6 +14,7 @@ Player::~Player()
 
 bool Player::Start()
 {
+
 	m_camera = FindGO<Camera>("camera");
 	scenenum = m_camera->Scenenum();
 	//右手の表示、アニメーション
@@ -32,7 +33,6 @@ bool Player::Start()
 	m_Lac[lhandAC_grip].SetLoopFlag(false);
 	m_Lhand->Init(L"modelData/Hand/LHand.cmo", m_Lac, lhandAC_Num);
 	m_Lhand->SetPosition(m_Lposition);
-
 	return true;
 }
 void Player::SetXPosition(float x)
@@ -41,9 +41,10 @@ void Player::SetXPosition(float x)
 	m_Lposition.x += x * (scenenum - 1);
 }
 
+
 void Player::Animation()
 {
-	/*if (Pad(0).IsPress(enButtonB)) {
+	/*if (Pad(0).IsPress(enButtonA)) {
 		m_Rhand->PlayAnimation(rhandAC_grip);
 	}
 	else {
@@ -81,27 +82,32 @@ void Player::Update()
 {
 	//カメラが移動するときの処理
 	nowscene = m_camera->ReturnNowScene();
-	if (Pad(0).IsTrigger(enButtonRB1)) {
-		if (nowscene != (scenenum - 1)) {
-			PlusXPosition(-CX);
-			tyuusin += -CX;
+	if (Pad(0).IsTrigger(enButtonRB1) &&
+		(Pad(0).IsTrigger(enButtonLB1))) {
+	}
+	else {
+		if (Pad(0).IsTrigger(enButtonRB1)) {
+			if (nowscene != (scenenum - 1)) {
+				PlusXPosition(-CX);
+				tyuusin += -CX;
+			}
+			else {
+				SetXPosition(CX);
+				tyuusin += CX * (scenenum - 1);
+			}
 		}
-		else {
-			SetXPosition(CX);
-			tyuusin += CX * (scenenum - 1);
+		if (Pad(0).IsTrigger(enButtonLB1)) {
+			if (nowscene != 0) {
+				PlusXPosition(CX);
+				tyuusin += CX;
+			}
+			else {
+				SetXPosition(-CX);
+				tyuusin += -CX * (scenenum - 1);
+			}
 		}
 	}
-	if (Pad(0).IsTrigger(enButtonLB1)) {
-		if (nowscene != 0) {
-			PlusXPosition(CX);
-			tyuusin += CX;
-		}
-		else {
-			SetXPosition(-CX);
-			tyuusin += -CX * (scenenum - 1);
-		}
-	}
-	Animation();
+	//Animation();
 	Move(m_Lposition);
 	m_Rhand->SetPosition(m_Rposition);
 	m_Lhand->SetPosition(m_Lposition);

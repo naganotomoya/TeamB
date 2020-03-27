@@ -7,9 +7,14 @@ public:
 	ScenePoteto();
 	~ScenePoteto();
 	bool Start();
-	void PotetoMove(CVector3& pos);
 	void Update();
 private:
+	enum State{
+		State_None,				//何もしない状態.
+		State_PickPoteto,		//ポテトを運んでいる状態。
+		State_TranlateFlyer,	//ポテトをお皿に盛り付ける状態。
+	};
+	State m_state = State_None;
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
 	prefab::CSkinModelRender* m_Poteto = nullptr;		//ポテトスキンモデル。
@@ -19,7 +24,7 @@ private:
 
 
 	
-
+	
 	CQuaternion Hanten;								//回転
 	CVector3 m_aburaposition = CVector3::Zero;		//油のポジション
 
@@ -29,7 +34,10 @@ private:
 	CVector3 m_Oposition = CVector3::Zero;			//お皿のポジション
 	CQuaternion m_Srotation = CQuaternion::Identity;//お皿の回転
 	CVector3 PPdiff = CVector3::Zero;				//ポテトとプレイヤーの手の距離
+	CVector3 PTdiff = CVector3::Zero;				//ポテトと皿の距離
+	CVector3 APdiff = CVector3::Zero;				//油とポテトの距離
 
-	bool pushPote = false;		//ポテトを持ったか
+	float PoteFly = 0.0;							//ポテトを揚げる秒数
+
 };
 

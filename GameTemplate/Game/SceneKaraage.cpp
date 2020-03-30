@@ -64,6 +64,7 @@ bool SceneKaraage::Start()
 
 	//m_fontkansei = NewGO<prefab::CFontRender>(0);
 
+
 	return true;
 }
 

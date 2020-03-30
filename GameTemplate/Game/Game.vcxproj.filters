@@ -32,6 +32,9 @@
     <Filter Include="Assets\modelData\Poteto">
       <UniqueIdentifier>{36deac88-baae-41a5-a41f-90c030dc9a5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\icePote">
+      <UniqueIdentifier>{fb606e43-d10f-4b75-acce-bac5112aba4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -108,6 +111,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Poteto\huraiya-4.FBX">
       <Filter>Assets\modelData\Poteto</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX">
+      <Filter>Assets\modelData\icePote</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

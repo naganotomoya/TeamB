@@ -53,31 +53,43 @@ public:
 	{
 		return m_Lposition;
 	}
-	////動かない方を動かす
-	//void SetLPosition(CVector3 pos)
-	//{
-	//	m_Lposition = pos;
-	//}
-	////動かない方の位置を返す
-	//CVector3 ReturnLPlayerPosition()
-	//{
-	//	return m_Rposition;
-	//}
-	////左手のアニメーション
-	//void LgripAnimation()
-	//{
-	//	m_Rhand->PlayAnimation(rhandAC_grip);
-	//}
-	//void LopenAnimation()
-	//{
-	//	m_Rhand->PlayAnimation(rhandAC_open);
-	//}
+	//左手を動かす
+	void SetLPosition(CVector3 pos)
+	{
+		m_Lposition = pos;
+	}
+	//左手位置を返す
+	CVector3 ReturnLPlayerPosition()
+	{
+		return m_Rposition;
+	}
+	//左手お皿で使うアニメーション
+	void LosaraAnime()
+	{
+		m_Rhand->PlayAnimation(rhandAC_osara);
+	}
+	void LosaraGrip()
+	{
+		m_Rhand->PlayAnimation(rhandAC_osaragrip);
+	}
+
+	//左手のアニメーション
+	void LgripAnimation()
+	{
+		m_Rhand->PlayAnimation(rhandAC_grip);
+	}
+	void LopenAnimation()
+	{
+		m_Rhand->PlayAnimation(rhandAC_open);
+	}
 
 private:
 	Camera* m_camera = nullptr;
 	enum RHandAC {
 		rhandAC_open,
 		rhandAC_grip,
+		rhandAC_osara,
+		rhandAC_osaragrip,
 		rhandAC_Num,	//アニメーションクリップの数。
 	};
 	enum LHandAC {

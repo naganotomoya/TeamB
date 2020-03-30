@@ -21,8 +21,12 @@ bool Player::Start()
 	m_Rhand = NewGO<prefab::CSkinModelRender>(0);
 	m_Rac[rhandAC_open].Load(L"animData/Hand/Ropen.tka");
 	m_Rac[rhandAC_grip].Load(L"animData/Hand/Rgrip.tka");
+	m_Rac[rhandAC_osara].Load(L"animData/Hand/LOsara.tka");
+	m_Rac[rhandAC_osaragrip].Load(L"animData/Hand/LOsaragri.tka");
 	m_Rac[rhandAC_open].SetLoopFlag(false);
 	m_Rac[rhandAC_grip].SetLoopFlag(false);
+	m_Rac[rhandAC_osara].SetLoopFlag(false);
+	m_Rac[rhandAC_osaragrip].SetLoopFlag(false);
 	m_Rhand->Init(L"modelData/Hand/RHand.cmo", m_Rac, rhandAC_Num);
 	m_Rhand->SetPosition(m_Rposition);
 	//左手の表示、アニメーション

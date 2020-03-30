@@ -35,6 +35,9 @@
     <Filter Include="Assets\modelData\icePote">
       <UniqueIdentifier>{fb606e43-d10f-4b75-acce-bac5112aba4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\MoritukeS">
+      <UniqueIdentifier>{d35d2305-44de-4101-b060-c130915a94f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -114,6 +117,12 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX">
       <Filter>Assets\modelData\icePote</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu2.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

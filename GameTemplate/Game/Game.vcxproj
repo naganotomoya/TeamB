@@ -1893,6 +1893,12 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei\Abura.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Cutkyabetu.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Karaageheikei.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\Manaita.png" />
+    <ImageContentTask Include="Assets\sprite\Phaikei\moritukehaikei.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

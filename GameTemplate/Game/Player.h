@@ -56,7 +56,7 @@ public:
 	//¶è‚ğ“®‚©‚·
 	void SetLPosition(CVector3 pos)
 	{
-		m_Lposition = pos;
+		m_Rposition = pos;
 	}
 	//¶èˆÊ’u‚ğ•Ô‚·
 	CVector3 ReturnLPlayerPosition()

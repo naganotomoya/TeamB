@@ -21,7 +21,7 @@ public:
 	//CVector3 m_positiontekisuto = { -2580.0f,30.0f};
 
 	//ˆÚ“®
-	CVector3 m_position = { -2480.0f,-20.0f,-6.0f };
+	CVector3 m_position = { -2480.0f,-15.0f,-6.0f };
 	CVector3 m_position2 = { -2480.0f,-50.0f,-6.0f };
 
 	CVector3 m_Startposition = { -2480.0f,-20.0f,-6.0f };

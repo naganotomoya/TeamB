@@ -178,7 +178,7 @@ void SceneDrink::Update()
 void SceneDrink::InitGhostObject()
 {
 	//ゴーストのワイヤーフレーム表示を有効にする。
-	PhysicsWorld().SetDebugDrawMode(btIDebugDraw::DBG_DrawWireframe);
+	//PhysicsWorld().SetDebugDrawMode(btIDebugDraw::DBG_DrawWireframe);
 	//ボックス形状のゴーストを作成する。
 	//お茶
 	m_ghostObject1.CreateBox(

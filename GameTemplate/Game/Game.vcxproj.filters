@@ -177,6 +177,9 @@
     <ImageContentTask Include="Assets\sprite\Phaikei\moritukehaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\DrinkHaikei.png">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">

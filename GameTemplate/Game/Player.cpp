@@ -18,25 +18,25 @@ bool Player::Start()
 	m_camera = FindGO<Camera>("camera");
 	scenenum = m_camera->Scenenum();
 	//右手の表示、アニメーション
-	m_Rhand = NewGO<prefab::CSkinModelRender>(0);
-	m_Rac[rhandAC_open].Load(L"animData/Hand/Ropen.tka");
-	m_Rac[rhandAC_grip].Load(L"animData/Hand/Rgrip.tka");
-	m_Rac[rhandAC_osara].Load(L"animData/Hand/LOsara.tka");
-	m_Rac[rhandAC_osaragrip].Load(L"animData/Hand/LOsaragri.tka");
-	m_Rac[rhandAC_open].SetLoopFlag(false);
-	m_Rac[rhandAC_grip].SetLoopFlag(false);
-	m_Rac[rhandAC_osara].SetLoopFlag(false);
-	m_Rac[rhandAC_osaragrip].SetLoopFlag(false);
-	m_Rhand->Init(L"modelData/Hand/RHand.cmo", m_Rac, rhandAC_Num);
-	m_Rhand->SetPosition(m_Rposition);
-	//左手の表示、アニメーション
 	m_Lhand = NewGO<prefab::CSkinModelRender>(0);
-	m_Lac[lhandAC_open].Load(L"animData/Hand/Lopen.tka");
-	m_Lac[lhandAC_grip].Load(L"animData/Hand/Lgrip.tka");
+	m_Lac[lhandAC_open].Load(L"animData/Hand/Ropen.tka");
+	m_Lac[lhandAC_grip].Load(L"animData/Hand/Rgrip.tka");
+	m_Lac[lhandAC_osara].Load(L"animData/Hand/LOsara.tka");
+	m_Lac[lhandAC_osaragrip].Load(L"animData/Hand/LOsaragri.tka");
 	m_Lac[lhandAC_open].SetLoopFlag(false);
 	m_Lac[lhandAC_grip].SetLoopFlag(false);
-	m_Lhand->Init(L"modelData/Hand/LHand.cmo", m_Lac, lhandAC_Num);
+	m_Lac[lhandAC_osara].SetLoopFlag(false);
+	m_Lac[lhandAC_osaragrip].SetLoopFlag(false);
+	m_Lhand->Init(L"modelData/Hand/RHand.cmo", m_Lac, lhandAC_Num);
 	m_Lhand->SetPosition(m_Lposition);
+	//左手の表示、アニメーション
+	m_Rhand = NewGO<prefab::CSkinModelRender>(0);
+	m_Rac[lhandAC_open].Load(L"animData/Hand/Lopen.tka");
+	m_Rac[lhandAC_grip].Load(L"animData/Hand/Lgrip.tka");
+	m_Rac[lhandAC_open].SetLoopFlag(false);
+	m_Rac[lhandAC_grip].SetLoopFlag(false);
+	m_Rhand->Init(L"modelData/Hand/LHand.cmo", m_Rac, rhandAC_Num);
+	m_Rhand->SetPosition(m_Rposition);
 	return true;
 }
 void Player::SetXPosition(float x)
@@ -55,10 +55,10 @@ void Player::Animation()
 		m_Rhand->PlayAnimation(rhandAC_open);
 	}*/
 	if (Pad(0).IsPress(enButtonB)) {
-		m_Lhand->PlayAnimation(lhandAC_grip);
+		m_Rhand->PlayAnimation(rhandAC_grip);
 	}
 	else {
-		m_Lhand->PlayAnimation(lhandAC_open);
+		m_Rhand->PlayAnimation(rhandAC_open);
 	}
 }
 
@@ -112,7 +112,7 @@ void Player::Update()
 		}
 	}
 	//Animation();
-	Move(m_Lposition);
+	Move(m_Rposition);
 	m_Rhand->SetPosition(m_Rposition);
 	m_Lhand->SetPosition(m_Lposition);
 }

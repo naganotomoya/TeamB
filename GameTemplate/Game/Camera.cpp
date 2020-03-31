@@ -50,7 +50,7 @@ bool Camera::Start()
 	scene[Drink].PxPos = scene[Drink - 1].TxPos - CX;
 	m_spriteDrink = NewGO<prefab::CSpriteRender>(0);
 	m_spriteDrink->Init(
-		L"sprite/Phaikei/Drink.dds",
+		L"sprite/Phaikei/DrinkHaikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true

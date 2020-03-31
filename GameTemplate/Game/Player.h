@@ -24,23 +24,23 @@ public:
 	//右手のアニメーション(閉じる)
 	void RgripAnimation()
 	{
-		m_Lhand->PlayAnimation(lhandAC_grip);
+		m_Rhand->PlayAnimation(rhandAC_grip);
 	}
 	//右手のアニメーション(開く)
 	void RopenAnimation()
 	{
-		m_Lhand->PlayAnimation(lhandAC_open);
+		m_Rhand->PlayAnimation(rhandAC_open);
 	}
 	//右手のz軸を設定する。
 	void setRHandZ(float posz)
 	{
-		m_Lposition.z = posz;
+		m_Rposition.z = posz;
 	}
 	//プレイヤーのY軸に引数分の回転を加える
 	void PlayerKaiten(float yjiku)
 	{
 		Yjiku.SetRotationDeg(CVector3::AxisY, yjiku);
-		m_Lhand->SetRotation(Yjiku);
+		m_Rhand->SetRotation(Yjiku);
 	}
 
 
@@ -51,58 +51,58 @@ public:
 	//右手の位置を返す
 	CVector3 ReturnRPlayerPosition()
 	{
-		return m_Lposition;
+		return m_Rposition;
 	}
 	//左手を動かす
 	void SetLPosition(CVector3 pos)
 	{
-		m_Rposition = pos;
+		m_Lposition = pos;
 	}
 	//左手位置を返す
 	CVector3 ReturnLPlayerPosition()
 	{
-		return m_Rposition;
+		return m_Lposition;
 	}
 	//左手お皿で使うアニメーション
 	void LosaraAnime()
 	{
-		m_Rhand->PlayAnimation(rhandAC_osara);
+		m_Lhand->PlayAnimation(lhandAC_osara);
 	}
 	void LosaraGrip()
 	{
-		m_Rhand->PlayAnimation(rhandAC_osaragrip);
+		m_Lhand->PlayAnimation(lhandAC_osaragrip);
 	}
 
 	//左手のアニメーション
 	void LgripAnimation()
 	{
-		m_Rhand->PlayAnimation(rhandAC_grip);
+		m_Lhand->PlayAnimation(lhandAC_grip);
 	}
 	void LopenAnimation()
 	{
-		m_Rhand->PlayAnimation(rhandAC_open);
+		m_Lhand->PlayAnimation(lhandAC_open);
 	}
 
 private:
 	Camera* m_camera = nullptr;
-	enum RHandAC {
-		rhandAC_open,
-		rhandAC_grip,
-		rhandAC_osara,
-		rhandAC_osaragrip,
-		rhandAC_Num,	//アニメーションクリップの数。
-	};
 	enum LHandAC {
 		lhandAC_open,
 		lhandAC_grip,
+		lhandAC_osara,
+		lhandAC_osaragrip,
 		lhandAC_Num,	//アニメーションクリップの数。
+	};
+	enum RHandAC {
+		rhandAC_open,
+		rhandAC_grip,
+		rhandAC_Num,	//アニメーションクリップの数。
 	};
 	CAnimationClip m_Rac[rhandAC_Num];	//アニメーションクリップ。
 	CAnimationClip m_Lac[lhandAC_Num];	//アニメーションクリップ。
 	prefab::CSkinModelRender* m_Rhand = nullptr;		//スキンモデルレンダラー。
 	prefab::CSkinModelRender* m_Lhand = nullptr;		//スキンモデルレンダラー。
-	CVector3 m_Rposition = { 20.0f,-60.0f,0.0f };
-	CVector3 m_Lposition = { 0.0f,0.0f,0.0f };
+	CVector3 m_Lposition = { 20.0f,-60.0f,0.0f };
+	CVector3 m_Rposition = { 0.0f,0.0f,0.0f };
 	CQuaternion Yjiku = CQuaternion::Identity;			//y軸周りの回転
 
 	float movespeed = 1.0f;	//移動速度

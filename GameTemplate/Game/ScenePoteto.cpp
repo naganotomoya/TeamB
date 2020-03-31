@@ -70,6 +70,14 @@ bool ScenePoteto::Start()
 void ScenePoteto::Update()
 {
 	PoteFly += GameTime().GetFrameDeltaTime();//お時間です。
+	
+	//Bを押している間手を閉じたい場合の処理
+	if (Pad(0).IsPress(enButtonB)) {
+		m_player->RgripAnimation();//閉じる
+	}
+	else {
+		m_player->RopenAnimation();//開く
+	}
 	//なにもない状態
 	if (m_state == State_None) {
 		if (Pad(0).IsPress(enButtonB)) {
@@ -91,6 +99,7 @@ void ScenePoteto::Update()
 			}
 			else {
 				m_KanseiPoteto->SetPosition(m_Pposition);
+
 			}
 			
 		}
@@ -132,6 +141,7 @@ void ScenePoteto::Update()
 			Fried = true;				//ポテトがあるよ。
 			//揚げたてポテトをNewGOする
 			m_KanseiPoteto->SetPosition(m_Pposition);
+
 			//揚げたポテトを持ちたい
 			m_state = State_PickPoteto;
 		}

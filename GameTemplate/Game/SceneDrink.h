@@ -30,7 +30,7 @@ public:
 	CVector3 m_Pposition = CVector3::Zero;
 
 	CVector3 m_positionG1 = { -2510.0f, -25.0f, -5.0f };
-	CVector3 m_positionG2 = { -2553.0f, -25.0f, -5.0f };
+	CVector3 m_positionG2 = { -2560.0f, -25.0f, -5.0f };
 	CVector3 m_positionG3 = { -2607.0f, -25.0f, -5.0f };
 	CVector3 m_positionG4 = { -2645.0f, -20.0f, -5.0f };
 

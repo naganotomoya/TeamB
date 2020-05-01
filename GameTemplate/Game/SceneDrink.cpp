@@ -178,7 +178,7 @@ void SceneDrink::Update()
 void SceneDrink::InitGhostObject()
 {
 	//ゴーストのワイヤーフレーム表示を有効にする。
-	//PhysicsWorld().SetDebugDrawMode(btIDebugDraw::DBG_DrawWireframe);
+	PhysicsWorld().SetDebugDrawMode(btIDebugDraw::DBG_DrawWireframe);
 	//ボックス形状のゴーストを作成する。
 	//お茶
 	m_ghostObject1.CreateBox(
@@ -207,7 +207,7 @@ void SceneDrink::InitGhostObject()
 	m_ghostObject4.CreateBox(
 		m_positionG4,	//第一引数は座標。
 		CQuaternion::Identity,		//第二引数は回転クォータニオン。
-		{ 30.0f, 30.0f, 10.0f }	//第三引数はボックスのサイズ。
+		{ 30.0f, 100.0f, 10.0f }	//第三引数はボックスのサイズ。
 	);
 
 

@@ -74,7 +74,7 @@ bool Camera::Start()
 	scene[Araimono].PxPos = scene[Araimono - 1].TxPos - CX;
 	m_spriteAraimono = NewGO<prefab::CSpriteRender>(0);
 	m_spriteAraimono->Init(
-		L"sprite/Phaikei/Araimono.dds",
+		L"sprite/Phaikei/AraimonoHaikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true

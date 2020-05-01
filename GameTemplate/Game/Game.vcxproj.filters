@@ -180,6 +180,12 @@
     <ImageContentTask Include="Assets\sprite\Phaikei\DrinkHaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\Dirt.jpg">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Phaikei\AraimonoHaikei.jpg">
+      <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">

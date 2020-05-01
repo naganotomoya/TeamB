@@ -70,14 +70,17 @@ bool ScenePoteto::Start()
 void ScenePoteto::Update()
 {
 	PoteFly += GameTime().GetFrameDeltaTime();//‚¨ŠÔ‚Å‚·B
-	
-	//B‚ğ‰Ÿ‚µ‚Ä‚¢‚éŠÔè‚ğ•Â‚¶‚½‚¢ê‡‚Ìˆ—
-	if (Pad(0).IsPress(enButtonB)) {
-		m_player->RgripAnimation();//•Â‚¶‚é
+	nowscene = m_camera->ReturnNowScene();
+	if (nowscene == 1) {
+		//B‚ğ‰Ÿ‚µ‚Ä‚¢‚éŠÔè‚ğ•Â‚¶‚½‚¢ê‡‚Ìˆ—
+		if (Pad(0).IsPress(enButtonB)) {
+			m_player->RgripAnimation();//•Â‚¶‚é
+		}
+		else {
+			m_player->RopenAnimation();//ŠJ‚­
+		}
 	}
-	else {
-		m_player->RopenAnimation();//ŠJ‚­
-	}
+
 	//‚È‚É‚à‚È‚¢ó‘Ô
 	if (m_state == State_None) {
 		if (Pad(0).IsPress(enButtonB)) {

@@ -46,6 +46,7 @@ private:
 	float PoteFly = 0.0;							//ポテトを揚げる秒数
 	bool Nama = true;								//生があるか
 	bool Fried = false;								//揚げたポテトがあるか
+	int nowscene = 0;
 
 };
 

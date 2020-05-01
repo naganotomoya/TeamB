@@ -38,7 +38,7 @@ bool Camera::Start()
 	scene[Poteto].PxPos = scene[Poteto - 1].TxPos - CX;
 	m_spritePoteto = NewGO<prefab::CSpriteRender>(0);
 	m_spritePoteto->Init(
-		L"sprite/Phaikei/Poteto.dds",
+		L"sprite/Phaikei/PotetoHaikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true

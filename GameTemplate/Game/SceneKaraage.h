@@ -8,12 +8,12 @@ public:
 	~SceneKaraage();
 	bool Start();
 	void TongMove();
-	void KaraageMove(CVector3& pos);
+	void KaraageMove(CVector3& pos, float dif);
 	void KaraageSyori();
-	void FrySyori();
 	void Update();
 
 	//あげているからあげの時間を返す
+	//初期は１５秒
 	float ReturnKaraageJikan()
 	{
 		return KaraageS;
@@ -37,10 +37,10 @@ private:
 	CVector3 m_Tposition = CVector3::Zero;			//トングのポジション。
 	CVector3 m_Kposition = CVector3::Zero;			//生からあげのポジション
 	CVector3 m_Knseiposition = CVector3::Zero;			//完成からあげのポジション
-	CVector3 m_KnseiStartposition = { 0.0f,0.0f,-300.0f };			//完成からあげの初期ポジション
+	CVector3 m_KnseiStartposition = { 0.0f,-100.0f,-5.0f };			//完成からあげの初期ポジション
 	CVector3 m_Sposition = CVector3::Zero;			//お皿のポジション
 	CQuaternion m_Trotation = CQuaternion::Identity;	//トング回転。
-	CQuaternion m_Srotation = CQuaternion::Identity;	//おさえあ回転。
+	CQuaternion m_Srotation = CQuaternion::Identity;	//お皿回転。
 	prefab::CSpriteRender* m_abura = nullptr;		//油の２D
 	CQuaternion Hanten;								//回転
 	CVector3 m_aburaposition = CVector3::Zero;		//油のポジション
@@ -48,15 +48,18 @@ private:
 	CVector3 KSdiff = CVector3::Zero;				//からあげとお皿の距離
 	CVector3 KAdiff = CVector3::Zero;				//からあげと油の距離
 
-	float KaraageS = 0;		//からあげをaげる秒数
-	bool pushkara = false;		//からあげを持ったか
-	bool fry = false;			//からあげをあげているか
-	bool kansei = false;		//完成したからあげがあるか
-
+	float KaraageS = 15;		//からあげをaげる秒数
 	int KanseiKosuu = 0;		//完成した個数
 	int nowscene = 0;	//今のシーンこれがないといつでも動いちゃう
 	float OverS = 0;		//からあげをaげる秒数
 
+	enum State {
+		StateIdle,
+		Statepush,
+		Statefry,
+		Statekansei
+	};
+	State m_state = StateIdle;
 
 	/*prefab::CFontRender* m_fontkansei = nullptr;
 	wchar_t text[256];*/

@@ -30,7 +30,7 @@ bool SceneDrink::Start()
 	m_kop2->SetScale({ 1.7f,1.7f,1.7f });
 
 	//アニメーションクリップのロード。
-	m_animClips[enAnimationClip_dorinkumizu].Load(L"animData/Drink/010.tka");
+	m_animClips[enAnimationClip_dorinkumizu].Load(L"animData/Drink/dorinkmizu010.tka");
 	m_animClips[enAnimationClip_kieru].Load(L"animData/Drink/dorinkmizu1025.tka");
 
 	m_animClips[enAnimationClip_dorinkukoora].Load(L"animData/Drink/dorinkko-ra010.tka");
@@ -146,6 +146,7 @@ void SceneDrink::Animation(CVector3& pos)
 		Pad(0).IsPress(enButtonB)) {
 		m_db->PlayAnimation(enAnimationClip_kieru);
 	}
+
 }
 
 void SceneDrink::Update()

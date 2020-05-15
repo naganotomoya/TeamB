@@ -86,7 +86,7 @@ bool Camera::Start()
 	scene[Kaikei].PxPos = scene[Kaikei - 1].TxPos - CX;
 	m_spriteKaikei = NewGO<prefab::CSpriteRender>(0);
 	m_spriteKaikei->Init(
-		L"sprite/Phaikei/Kaikei.dds",
+		L"sprite/Phaikei/kaikeihaikei.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true

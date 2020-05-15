@@ -52,10 +52,11 @@ bool SceneKaraage::Start()
 		true	//3D表示
 	);
 	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);	//反転
-	m_abura->SetScale({ 0.05f,0.1f,0.05f });
-	m_aburaposition = { -10.0f,0.0f,-20.0f };
+	m_abura->SetScale({ 0.04f,0.08f,0.05f });
+	m_aburaposition = { -8.5f,0.0f,-2.5f };
 	m_abura->SetPosition(m_aburaposition);
 	m_abura->SetRotation(Hanten);					//反転を適応
+	m_abura->SetMulColor({ 1.0f,1.0f,1.0f,0.8f });
 	//完成したからあげ
 	m_kansei = NewGO<prefab::CSkinModelRender>(0, "kansei");
 	m_kansei->Init(L"modelData/KaraageS/Kansei.cmo");
@@ -63,7 +64,6 @@ bool SceneKaraage::Start()
 	m_kansei->SetPosition(m_Knseiposition);
 
 	//m_fontkansei = NewGO<prefab::CFontRender>(0);
-
 
 	return true;
 }
@@ -79,7 +79,7 @@ void SceneKaraage::TongMove()
 	m_tong->SetPosition(m_Tposition);
 }
 
-void SceneKaraage::KaraageMove(CVector3& pos)
+void SceneKaraage::KaraageMove(CVector3& pos, float dif)
 {
 	KTdiff = m_Tposition - pos;
 	//からあげとトングの距離が近くて、
@@ -87,131 +87,109 @@ void SceneKaraage::KaraageMove(CVector3& pos)
 	//アニメーション追加した時にその処理も追加
 	//アニメーションが再生されている時という処理追加したら
 	//閉じるときしかつかめないように出来るはず。
-	if (KTdiff.Length() <= 8.0f &&
+	if (KTdiff.Length() <= dif &&
 		Pad(0).IsPress(enButtonB)) {
-		if (pushkara == false) {
-			pushkara = true;
-		}
 		//m_player->Move()はプレイヤークラスに定義宣言
 		//プレイヤーと同じ動きをする。
 		//引数に好きな変数を入れたらどこでも使える。
-		if (pushkara == true) {
-			m_player->Move(pos);
-		}
+		m_player->Move(pos);
 	}
 }
 
 void SceneKaraage::KaraageSyori()
 {
-	//完成したからあげがなければ
-	if (kansei == false) {
-		KaraageMove(m_Kposition);
-		m_nama->SetPosition(m_Kposition);
-		//からあげを一度持った後
-		if (pushkara == true) {
-			//シーンを変えたら、初期位置へ
-			if (Pad(0).IsTrigger(enButtonRB1) ||
-				Pad(0).IsTrigger(enButtonLB1)) {
-				m_Kposition = m_StartPos;
-				m_nama->SetPosition(m_Kposition);
-				pushkara = false;
-			}
-			//からあげとトングが離れるか、Bを離した時
-			if (KTdiff.Length() >= 20.0f ||
-				!Pad(0).IsPress(enButtonB)) {
-				KAdiff = m_aburaposition - m_Kposition;
-				pushkara = false;
-				//油との距離が近ければ揚げ始める。
-				if (KAdiff.Length() <= 35.0f) {
-					fry = true;
-				}
-				//遠ければ初期位置へ戻す。
-				else {
-					m_Kposition = m_StartPos;
-					m_nama->SetPosition(m_Kposition);
-					pushkara = false;
-				}
-			}
-
+	/*初期位置、待機*/
+	if (m_state == StateIdle) {
+		//生からと完成したからあげを初期ポジに戻す。
+		m_Kposition = m_StartPos;
+		m_Knseiposition = m_KnseiStartposition;
+		//からあげトングの距離
+		KTdiff = m_Tposition - m_Kposition;
+		//からあげとトングが近くて、Bが押されていると、
+		//Statepushに移動
+		if (KTdiff.Length() <= 8.0f &&
+			Pad(0).IsPress(enButtonB)) {
+			m_state = Statepush;
 		}
 	}
-	//完成したからあげがあれば
-	else {
-		//OverS += GameTime().GetFrameDeltaTime();
-		if (pushkara == false
-			&& OverS >= 10) {
-			m_Knseiposition = m_KnseiStartposition;
-			m_kansei->SetPosition(m_Knseiposition);
-			pushkara = false;
-			kansei = false;
-			OverS = 0;
+	/*生から持った状態*/
+	if (m_state == Statepush) {
+		//生からあげを動かす。
+		KaraageMove(m_Kposition, 8.0f);
+		//シーンを変えたら、初期位置へ
+		if (Pad(0).IsTrigger(enButtonRB1) ||
+			Pad(0).IsTrigger(enButtonLB1)) {
+			m_state = StateIdle;
 		}
-		//完成したからあげを動かすようにする。
-		KaraageMove(m_Knseiposition);
-		m_kansei->SetPosition(m_Knseiposition);
+		//Bを離した時、油と近ければ次の処理
+		if (!Pad(0).IsPress(enButtonB) ||
+			KTdiff.Length() >= 10.0f) {
+			//からあげと油の距離
+			KAdiff = m_aburaposition - m_Kposition;
+			if (KAdiff.Length() <= 35.0f) {
+				m_state = Statefry;
+			}
+			//遠ければ初期位置へ戻す。
+			else {
+				m_state = StateIdle;
+			}
+		}
+	}
+	/*揚げる状態*/
+	if (m_state == Statefry) {
+		//指定した秒数経ったら
+		if (KaraageS <= 0.0f) {
+			//完成したからあげを出す
+			m_Knseiposition = m_Kposition;
+			m_Kposition = m_StartPos;
+			//秒数を初期に戻して、Statekanseiに移動
+			KaraageS = 15.0f;
+			m_state = Statekansei;
+		}
+	}
+	/*完成したからあげがある状態*/
+	if (m_state == Statekansei) {
+		//それぞれの距離
 		KSdiff = m_Sposition - m_Knseiposition;
-		//からあげを一度持った後、
-		if (pushkara == true) {
-			//シーンを変えたらそのまま消す
+		KTdiff = m_Tposition - m_Knseiposition;
+		KAdiff = m_aburaposition - m_Knseiposition;
+		//完成したからあげを動かす
+		KaraageMove(m_Knseiposition, 8.0f);
+		//持ってるじょうたいで他のシーン行ったら戻す。
+		if (Pad(0).IsPress(enButtonB)) {
 			if (Pad(0).IsTrigger(enButtonRB1) ||
 				Pad(0).IsTrigger(enButtonLB1)) {
-				m_Knseiposition = m_KnseiStartposition;
-				m_kansei->SetPosition(m_Knseiposition);
-				OverS = 0;
-				pushkara = false;
-				kansei = false;
+				m_state = StateIdle;
 			}
-			//からあげとトングが離れるか、Bを離した時
-			if (KTdiff.Length() >= 20.0f ||
-				!Pad(0).IsPress(enButtonB)) {
-				KSdiff = m_Sposition - m_Knseiposition;
-				//お皿の上で離したら
-				//完成個数を増やす。
-				if (KSdiff.Length() <= 20.0f) {
-					pushkara = false;
-					m_Knseiposition = m_KnseiStartposition;
-					m_kansei->SetPosition(m_Knseiposition);
-					OverS = 0;
-					KanseiKosuu++;
-					kansei = false;
-				}
-				//遠ければ
-				else {
-					//完成個数は増やさずに消す。
-					m_Knseiposition = m_KnseiStartposition;
-					m_kansei->SetPosition(m_Knseiposition);
-					OverS = 0;
-					pushkara = false;
-					kansei = false;
-				}
-			}
-
 		}
-	}
-}
+		//Bを離すか、トングとからあげが離れた時、
+		if (!Pad(0).IsPress(enButtonB) ||
+			KTdiff.Length() >= 10.0f) {
+			//油と近ければ何もしない
+			if (KAdiff.Length() <= 35.0f) {
 
-void SceneKaraage::FrySyori()
-{
-	KAdiff = m_aburaposition - m_Kposition;
-	//油との距離が離れてしまったら。
-	if (KAdiff.Length() >= 35.0f) {
-		m_Kposition = m_StartPos;
-		m_nama->SetPosition(m_Kposition);
-		fry = false;
-		pushkara = false;
-		KaraageS = 0.0f;
-	}
-	if (KaraageS >= 10) {
-		//完成したからあげを出す
-		m_Knseiposition = m_Kposition;
-		m_kansei->SetPosition(m_Knseiposition);
-		kansei = true;
+			}
+			//遠ければ初期位置に戻す。
+			else {
+				OverS = 0.0f;
+				m_state = StateIdle;
+			}
+			//お皿と近ければ
+			if (KSdiff.Length() <= 20.0f) {
+				//完成をプラス、オーバータイムを0にして
+				//StateIdleに移動
+				KanseiKosuu++;
+				OverS = 0.0f;
+				m_state = StateIdle;
 
-		m_Kposition = m_StartPos;
-		m_nama->SetPosition(m_Kposition);
-		fry = false;
-		pushkara = false;
-		KaraageS = 0.0f;
+			}
+		}
+		//オーバータイムが指定以上になったら
+		//初期に戻す
+		if (OverS >= 30.0f) {
+			OverS = 0.0f;
+			m_state = StateIdle;
+		}
 	}
 }
 
@@ -221,23 +199,27 @@ void SceneKaraage::Update()
 		//カーソルをReturnMowSceneに持っていったらどの番号がどのシーンかわかります。
 	nowscene = m_camera->ReturnNowScene();
 	if (nowscene == 0) {
-		m_player->RgripAnimation();
-		TongMove();
-		KaraageSyori();
+		m_player->RgripAnimation();	//プレイヤーはずっと握っておく。
+		TongMove();					//トングの動き
+		KaraageSyori();				//からあげの処理
 	}
+	//LかR押したら右手を開く
 	if (Pad(0).IsTrigger(enButtonRB1) ||
 		Pad(0).IsTrigger(enButtonLB1)) {
 		m_player->RopenAnimation();
 	}
-	//変数はシーンがからあげでなくても動かす
-	if (fry == true) {
-		//これでKaraageSに秒数を足せる
-		KaraageS += GameTime().GetFrameDeltaTime();
-		FrySyori();
+	//からあげを揚げる秒数のカウント
+	if (m_state == Statefry) {
+		KaraageS -= GameTime().GetFrameDeltaTime();
 	}
-	if (kansei == true) {
+	//オーバータイムのカウント
+	if (m_state == Statekansei &&
+		!Pad(0).IsPress(enButtonB)) {
 		OverS += GameTime().GetFrameDeltaTime();
 	}
+	m_nama->SetPosition(m_Kposition);
+	m_kansei->SetPosition(m_Knseiposition);
+
 	//m_nama->SetEmissionColor({ 1.0f,1.0f,1.0f });
 	/*CVector3 colar;
 	colar.x = 0.0f;

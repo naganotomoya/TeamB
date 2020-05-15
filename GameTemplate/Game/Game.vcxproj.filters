@@ -38,6 +38,9 @@
     <Filter Include="Assets\modelData\MoritukeS">
       <UniqueIdentifier>{d35d2305-44de-4101-b060-c130915a94f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\dorinkuba">
+      <UniqueIdentifier>{cdaff80a-a40c-4d2c-bea0-f1d9ee714ca3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -98,8 +101,6 @@
     <MeshContentTask Include="Assets\modelData\tongs.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
-    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\flyer.FBX">
       <Filter>Assets\modelData\Poteto</Filter>
     </MeshContentTask>
@@ -123,6 +124,21 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba4.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba3.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba2.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\hito1.FBX">
+      <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

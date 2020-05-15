@@ -1812,10 +1812,13 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
     <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba2.fbx" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba3.fbx" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba4.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx" />
+    <MeshContentTask Include="Assets\modelData\hito1.FBX" />
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />

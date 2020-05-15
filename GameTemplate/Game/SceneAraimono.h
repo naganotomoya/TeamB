@@ -17,7 +17,7 @@ private:
 	CQuaternion m_Srotation = CQuaternion::Identity;		//お皿の回転
 
 	prefab::CSpriteRender* m_Yogore = nullptr;				//汚れスキンモデル
-	CVector3 m_YogoPos = { -5110.0f,0.0f,0.0f };			//汚れのポジション
+	CVector3 m_YogoPos = { -5105.0f,0.0f,0.0f };			//汚れのポジション
 
 	CVector3 KPos = CVector3{ -5070.0f,0.0f,0.0f };			//洗えた皿のポジション	
 	CVector3 ROdiff = CVector3::Zero;						//お皿と右手の距離

@@ -8,6 +8,7 @@ SceneAraimono::SceneAraimono()
 SceneAraimono::~SceneAraimono()
 {
 	DeleteGO(m_osara);
+	DeleteGO(m_Yogore);
 }
 
 bool SceneAraimono::Start()
@@ -15,11 +16,11 @@ bool SceneAraimono::Start()
 	m_camera = FindGO<Camera>("camera");
 	m_player = FindGO<Player>("player");
 	//お皿
-	m_osara = NewGO<prefab::CSkinModelRender>(0, "osara");
+	m_osara = NewGO<prefab::CSkinModelRender>(1, "osara");
 	m_osara->Init(L"modelData/KaraageS/sara.cmo");			//お皿のロード
 	m_Srotation.SetRotationDeg(CVector3::AxisX, 90.0f);		//90度回転
 	m_osara->SetRotation(m_Srotation);
-	m_Oposition = { -5110.0f,0.0f,-1.0f };					//初期位置
+	m_Oposition = { -5105.0f,-15.0f,-1.0f };					//初期位置
 	m_osara->SetPosition(m_Oposition);
 
 	//汚れ
@@ -42,7 +43,7 @@ void SceneAraimono::Update()
 {
 	Nowscene = m_camera->ReturnNowScene();
 	if (Nowscene == 4) {
-		Osara();
+		//Osara();
 	}
 	
 	//左手で持って右手で洗う。

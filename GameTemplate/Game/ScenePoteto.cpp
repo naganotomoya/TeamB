@@ -23,7 +23,7 @@ bool ScenePoteto::Start()
 	//生ポテト
 	m_Poteto = NewGO<prefab::CSkinModelRender>(0, "Poteto");
 	m_Poteto->Init(L"modelData/icePote/Poteto1.cmo");
-	m_Pposition = { -1230.0f,0.0f,0.0f};
+	m_Pposition = { -1208.0f,0.0f,0.0f};
 	m_Poteto->SetPosition(m_Pposition);
 	//ポテト
 	m_KanseiPoteto = NewGO<prefab::CSkinModelRender>(0, "KanseiPoteto");
@@ -36,7 +36,7 @@ bool ScenePoteto::Start()
 	FlyQuater.SetRotationDeg(CVector3::AxisX, 90.0f);
 	m_Flyer->SetRotation(FlyQuater);
 	m_Flyer->SetScale({ 1.5f,1.25f,1.25f });
-	m_Fposition = { -1280.0f,-20.0f,-30.0f };
+	m_Fposition = { -1275.0f,-20.0f,-30.0f };
 	m_Flyer->SetPosition(m_Fposition);
 	//お皿
 	m_osara = NewGO<prefab::CSkinModelRender>(0, "osara");
@@ -57,7 +57,7 @@ bool ScenePoteto::Start()
 	);
 	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);	//反転
 	m_abura->SetScale({ 0.031f,0.05f,0.05f });
-	m_aburaposition = { -1282.0f,4.0f,-5.0f };
+	m_aburaposition = { -1278.0f,4.0f,-5.0f };
 	m_abura->SetPosition(m_aburaposition);
 	m_abura->SetRotation(Hanten);					//反転を適応
 

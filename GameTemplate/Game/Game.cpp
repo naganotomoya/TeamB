@@ -10,6 +10,7 @@
 #include "SceneMorituke.h"
 #include "SceneAraimono.h"
 #include "SceneKaikei.h"
+//#include "GameEnd.h"
 #include "tkEngine/light/tkDirectionLight.h"
 
 Game::Game()
@@ -31,6 +32,8 @@ Game::~Game()
 	DeleteGO(m_morituke);
 	DeleteGO(m_araimono);
 	DeleteGO(m_kaikei);
+
+	DeleteGO(m_fonttimer);
 }
 bool Game::Start()
 {
@@ -55,13 +58,49 @@ bool Game::Start()
 	m_araimono = NewGO<SceneAraimono>(0, "araimono");
 	m_kaikei = NewGO<SceneKaikei>(0, "kaikei");
 
+	m_fonttimer = NewGO<prefab::CFontRender>(0);
+	m_fonttimer->SetPosition(timerPos);
+	m_fonttimer->SetScale(2.0f);
+
+	m_fontkanseihin = NewGO<prefab::CFontRender>(0);
+	m_fontkanseihin->SetText(L"完成品：");
+	m_fontkanseihin->SetPosition(kanseiPos);
+	//m_fontkanseihin->SetColor({ 1.0f,0.0f,0.0f });
+	//m_fontkanseihin->SetScale(2.0f);
+	m_fontkosuu = NewGO<prefab::CFontRender>(0);
+	m_fontkosuu->SetPosition(kosuuPos);
+
 	return true;
+}
+
+void Game::KanseiCount()
+{
+	Kansei = m_karaage->ReturnKaraageKansei();
 }
 
 void Game::Update()
 {
+	KanseiCount();
 	if (Pad(0).IsPress(enButtonStart) == true) {
 		NewGO<Title>(0);
 		DeleteGO(this);
 	}
+
+
+	//タイマー
+	if (timer >= 0.0f) {
+		timer -= GameTime().GetFrameDeltaTime();
+	}
+	else {
+		/*NewGO<GameEnd>(0, "Gameend");
+		DeleteGO(this);*/
+	}
+	int minute = (int)timer / 60;
+	float sec = (int)timer % 60;
+	swprintf_s(texttimer, L"%02d:%02.0f", minute, sec);
+	m_fonttimer->SetText(texttimer);
+
+	swprintf_s(textkosuu, L"%02d", Kansei);
+	m_fontkosuu->SetText(textkosuu);
+
 }

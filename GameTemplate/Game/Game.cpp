@@ -21,6 +21,7 @@ Game::Game()
 Game::~Game()
 {
 
+	//
 	//DeleteGO(m_skinModelRender);
 	DeleteGO(m_spriteRender);
 	DeleteGO(Progressbar);

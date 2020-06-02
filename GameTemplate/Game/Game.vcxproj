@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
@@ -1798,6 +1799,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEnd.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
@@ -1920,6 +1922,11 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Chiyoko.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Fhiyoko.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

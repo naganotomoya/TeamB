@@ -10,7 +10,7 @@
 #include "SceneMorituke.h"
 #include "SceneAraimono.h"
 #include "SceneKaikei.h"
-//#include "GameEnd.h"
+#include "GameEnd.h"
 #include "tkEngine/light/tkDirectionLight.h"
 
 Game::Game()
@@ -93,8 +93,8 @@ void Game::Update()
 		timer -= GameTime().GetFrameDeltaTime();
 	}
 	else {
-		/*NewGO<GameEnd>(0, "Gameend");
-		DeleteGO(this);*/
+		NewGO<GameEnd>(0, "Gameend");
+		DeleteGO(this);
 	}
 	int minute = (int)timer / 60;
 	float sec = (int)timer % 60;

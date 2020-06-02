@@ -1,6 +1,7 @@
 #pragma once
 #include "Player.h"
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
+class Camera;
 class SceneDrink : public IGameObject
 {
 public:
@@ -12,13 +13,19 @@ public:
 	void Update();
 	void InitGhostObject();
 
+
+	Camera* m_camera = nullptr;
 	//スプライトレンダラー
 	//prefab::CSkinModelRender* m_skinModelRenderer = nullptr;
 	//フォントレンダラー。
 	prefab::CFontRender* m_fontRender = nullptr;
 	wchar_t text[256];
+	prefab::CFontRender* m_fontRender2 = nullptr;
+	wchar_t text2[256];
 	CVector2 m_positiontekisuto = { 80.0f,200.0f };
+	CVector2 m_positiontekisuto2 = { 80.0f,250.0f };
 	//CVector3 m_positiontekisuto = { -2580.0f,30.0f};
+	CVector4 m_fontC = { 0.0f,0.0f,0.0f,1.0f };
 
 	//移動
 	CVector3 m_position = { -2480.0f,-15.0f,-6.0f };
@@ -43,8 +50,9 @@ public:
 	//移動速度
 	//CVector3 m_moveSpeed = CVector3::Zero;
 
-	int m_state = 0;
+	//int m_state = 0;
 	int dorinkucount = 0;
+	float dorinkucountsuuzi = 5.0f;
 
 	bool kophave1 = false;
 	bool kophave2 = false;
@@ -54,6 +62,9 @@ public:
 
 	Player* player = nullptr;
 	//SceneDrink* koop1 = nullptr;
+
+	float timer = 0.0f;
+
 
 	enum EnAnimationClip {
 		enAnimationClip_dorinkumizu, //ドリンクアニメーション
@@ -78,5 +89,17 @@ public:
 	CPhysicsGhostObject m_ghostObject2; //コーラ
 	CPhysicsGhostObject m_ghostObject3; //水
 	CPhysicsGhostObject m_ghostObject4; //完成品
+
+	enum State {
+		Idle,
+		Mizu,
+		Cora,
+		Otya,
+		In,
+		Out,
+		Count,
+		End
+	};
+	State m_state = Idle;
 
 };

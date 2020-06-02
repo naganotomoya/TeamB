@@ -80,9 +80,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx">
       <Filter>Assets\modelData\Hand</Filter>
     </MeshContentTask>
@@ -138,6 +135,9 @@
       <Filter>Assets\modelData\dorinkuba</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\hito1.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

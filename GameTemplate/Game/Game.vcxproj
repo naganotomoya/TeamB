@@ -1831,7 +1831,9 @@
     <MeshContentTask Include="Assets\modelData\Poteto\huraiya-4.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\poteto.FBX" />
     <MeshContentTask Include="Assets\modelData\tongs.FBX" />
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
+      <FileType>Document</FileType>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png" />

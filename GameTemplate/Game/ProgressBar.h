@@ -1,4 +1,7 @@
 #pragma once
+
+class SceneKaraage;
+
 class ProgressBar :public IGameObject
 {
 public:
@@ -27,5 +30,7 @@ private:
 
 	CFont m_font;
 	int k = 0.0, p = 0.0;
+
+	SceneKaraage* scenekaraage = nullptr;
 };
 

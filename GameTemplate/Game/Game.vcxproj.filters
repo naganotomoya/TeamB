@@ -38,6 +38,12 @@
     <Filter Include="Assets\modelData\MoritukeS">
       <UniqueIdentifier>{d35d2305-44de-4101-b060-c130915a94f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\dorinkuba">
+      <UniqueIdentifier>{cdaff80a-a40c-4d2c-bea0-f1d9ee714ca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\sprite\Hiyoko">
+      <UniqueIdentifier>{cd64018f-fed5-4c01-9a78-c74eb52135a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -53,6 +59,7 @@
     <ClCompile Include="SceneMorituke.cpp" />
     <ClCompile Include="SceneAraimono.cpp" />
     <ClCompile Include="SceneKaikei.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -70,6 +77,7 @@
     <ClInclude Include="SceneMorituke.h" />
     <ClInclude Include="SceneAraimono.h" />
     <ClInclude Include="SceneKaikei.h" />
+    <ClInclude Include="GameEnd.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -77,9 +85,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx">
       <Filter>Assets\modelData\Hand</Filter>
     </MeshContentTask>
@@ -98,8 +103,6 @@
     <MeshContentTask Include="Assets\modelData\tongs.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
-    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\flyer.FBX">
       <Filter>Assets\modelData\Poteto</Filter>
     </MeshContentTask>
@@ -123,6 +126,24 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba4.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba3.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba2.fbx">
+      <Filter>Assets\modelData\dorinkuba</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\hito1.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
+      <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +212,15 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Chiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Fhiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

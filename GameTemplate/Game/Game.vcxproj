@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
@@ -1798,6 +1799,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEnd.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
@@ -1812,10 +1814,13 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dorinkuba2.FBX" />
     <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba.FBX" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba2.fbx" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba3.fbx" />
+    <MeshContentTask Include="Assets\modelData\dorinkuba\dorinkuba4.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\LHand.fbx" />
     <MeshContentTask Include="Assets\modelData\Hand\RHand.fbx" />
+    <MeshContentTask Include="Assets\modelData\hito1.FBX" />
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
@@ -1828,7 +1833,9 @@
     <MeshContentTask Include="Assets\modelData\Poteto\huraiya-4.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\poteto.FBX" />
     <MeshContentTask Include="Assets\modelData\tongs.FBX" />
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
+      <FileType>Document</FileType>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png" />
@@ -1915,6 +1922,11 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Chiyoko.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Fhiyoko.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

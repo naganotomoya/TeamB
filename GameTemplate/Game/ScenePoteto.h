@@ -8,6 +8,15 @@ public:
 	~ScenePoteto();
 	bool Start();
 	void Update();
+	float ReturnPotetoTime() {		//ポテトを揚げている秒数
+		return PoteFly;
+	}
+	int ReturnKanseiPoteto() {		//ポテト完成の変数
+		return PotetoKansei;
+	}
+	void SetPotetoKosuu() {			//ポテトの個数をマイナス
+		PotetoKansei--;
+	}
 private:
 	enum State{
 		State_None,				//何もしない状態.
@@ -34,7 +43,7 @@ private:
 	CQuaternion FlyQuater;							//フライヤーの回転。
 	
 	CVector3 m_Pposition = CVector3::Zero;			//生ポテのポジション
-	CVector3 InitialPosition = { -1230.0f,0.0f,0.0f };//生ポテ初期位置
+	CVector3 InitialPosition = { -1208.0f,0.0f,0.0f };//生ポテ初期位置
 	CVector3 m_Kanseiposition = { -1230.0f,0.0f,-300.0f };		//完成ポテトのポジション
 	CVector3 m_Oposition = CVector3::Zero;			//お皿のポジション
 	CQuaternion m_Srotation = CQuaternion::Identity;//お皿の回転
@@ -44,6 +53,7 @@ private:
 	CVector3 APdiff = CVector3::Zero;				//油とポテトの距離
 
 	float PoteFly = 0.0;							//ポテトを揚げる秒数
+	int PotetoKansei = 0;							//完成したポテトの数
 	bool Nama = true;								//生があるか
 	bool Fried = false;								//揚げたポテトがあるか
 	int nowscene = 0;

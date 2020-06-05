@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ProgressBar.h"
+#include "SceneKaraage.h"
 
 ProgressBar::ProgressBar()
 {
@@ -15,6 +16,12 @@ ProgressBar::~ProgressBar()
 
 bool ProgressBar::Start()
 {
+	//Š®¬‚µ‚½“‚—g‚°‚Ì•Ï”‚ğ’T‚·
+	scenekaraage = FindGO<SceneKaraage>("karaage");
+	//
+	//‚¨‹q—l‚Ì•Ï”‚à’T‚·
+	//
+
 	CVector2 Pivot = { 0.0,0.5 };
 	k_spriteRender = NewGO<prefab::CSpriteRender>(1);//“‚—g‚°
 	k_spriteRender->Init(L"sprite/Ô.dds", 1, 30.0f);
@@ -65,7 +72,7 @@ void ProgressBar::PostRender(CRenderContext& rc)
 
 void ProgressBar::Update()
 {
-
+	k = scenekaraage->ReturnKaraageKansei();
 	CVector3 scale = CVector3::One;
 	scale.x *= x;
 	k_spriteRender->SetScale(scale);

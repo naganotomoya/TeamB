@@ -144,7 +144,7 @@ void ScenePoteto::Update()
 			Fried = true;				//ポテトがあるよ。
 			//揚げたてポテトをNewGOする
 			m_KanseiPoteto->SetPosition(m_Pposition);
-
+			PotetoKansei++;				//完成したポテとの数
 			//揚げたポテトを持ちたい
 			m_state = State_PickPoteto;
 		}

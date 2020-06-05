@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Title.h"
-#include "ProgressBar.h"
+//#include "ProgressBar.h"
 #include "Player.h"
 #include "Camera.h"
 #include "SceneKaraage.h"
@@ -24,7 +24,7 @@ Game::~Game()
 	//
 	//DeleteGO(m_skinModelRender);
 	DeleteGO(m_spriteRender);
-	DeleteGO(Progressbar);
+	//DeleteGO(Progressbar);
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 	DeleteGO(m_karaage);
@@ -49,7 +49,7 @@ bool Game::Start()
 	//m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	//m_spriteRender->Init(L"sprite/phaikei.dds", 1280.0f, 720.0f);
 
-	Progressbar = NewGO<ProgressBar>(0);
+	//Progressbar = NewGO<ProgressBar>(0);
 	m_player = NewGO<Player>(0, "player");
 	m_camera = NewGO<Camera>(0, "camera");
 	m_karaage = NewGO<SceneKaraage>(0, "karaage");

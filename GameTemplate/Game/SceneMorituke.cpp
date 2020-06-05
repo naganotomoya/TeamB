@@ -19,7 +19,7 @@ bool SceneMorituke::Start()
 	m_player = FindGO<Player>("player");
 	//ƒLƒƒƒxƒc
 	m_kyabetu = NewGO<prefab::CSkinModelRender>(0, "kyabetu");
-	m_kyabetu->Init(L"modelData/MoritukeS/Kyabetu2.cmo");
+	m_kyabetu->Init(L"modelData/MoritukeS/Kyabetu3.cmo");
 	m_kyabetu->SetScale(m_Kscal);
 	m_kyabetu->SetPosition(m_kyabetupos);
 	//•ï’š

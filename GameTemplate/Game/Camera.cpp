@@ -14,7 +14,7 @@ Camera::~Camera()
 	DeleteGO(m_spriteDrink);
 	DeleteGO(m_spriteMorituke);
 	DeleteGO(m_spriteAraimono);
-	DeleteGO(m_spriteKaikei);
+	//DeleteGO(m_spriteKaikei);
 	DeleteGO(lig);
 }
 bool Camera::Start()
@@ -81,18 +81,18 @@ bool Camera::Start()
 	);
 	m_spriteAraimono->SetPosition({ scene[Araimono].TxPos,0.0f,-520.0f });
 	m_spriteAraimono->SetRotation(Hanten);
-	//会計
-	scene[Kaikei].TxPos = scene[Kaikei - 1].TxPos - CX;
-	scene[Kaikei].PxPos = scene[Kaikei - 1].TxPos - CX;
-	m_spriteKaikei = NewGO<prefab::CSpriteRender>(0);
-	m_spriteKaikei->Init(
-		L"sprite/Phaikei/kaikeihaikei.dds",
-		MainCamera().GetWidth(),
-		MainCamera().GetHeight(),
-		true
-	);
-	m_spriteKaikei->SetPosition({ scene[Kaikei].TxPos,0.0f,-520.0f });
-	m_spriteKaikei->SetRotation(Hanten);
+	////会計
+	//scene[Kaikei].TxPos = scene[Kaikei - 1].TxPos - CX;
+	//scene[Kaikei].PxPos = scene[Kaikei - 1].TxPos - CX;
+	//m_spriteKaikei = NewGO<prefab::CSpriteRender>(0);
+	//m_spriteKaikei->Init(
+	//	L"sprite/Phaikei/kaikeihaikei.dds",
+	//	MainCamera().GetWidth(),
+	//	MainCamera().GetHeight(),
+	//	true
+	//);
+	//m_spriteKaikei->SetPosition({ scene[Kaikei].TxPos,0.0f,-520.0f });
+	//m_spriteKaikei->SetRotation(Hanten);
 	/*--------------------------------*/
 		//カメラを設定。
 	MainCamera().SetTarget({ scene[Karaage].TxPos, 0.0f, 0.0f });

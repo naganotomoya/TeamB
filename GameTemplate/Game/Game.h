@@ -1,5 +1,5 @@
 #pragma once
-#include "ProgressBar.h"
+//#include "ProgressBar.h"
 #include "tkEngine/graphics/effect/tkEffect.h"
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
 #include "tkEngine/character/tkCharacterController.h"
@@ -36,7 +36,7 @@ public:
 private:
 	prefab::CSpriteRender* m_spriteRender = nullptr;
 
-	ProgressBar* Progressbar = nullptr;
+	//ProgressBar* Progressbar = nullptr;
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
 	SceneKaraage* m_karaage = nullptr;
@@ -48,7 +48,8 @@ private:
 
 	prefab::CFontRender* m_fonttimer = nullptr;
 	wchar_t texttimer[256];
-	float timer = 181.0f;	//タイマー
+	//制限時間
+	float timer = 61.0f;	//タイマー
 	CVector2 timerPos = { 380.0f,280.0f };
 
 	prefab::CFontRender* m_fontkanseihin = nullptr;

@@ -1827,6 +1827,7 @@
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX" />
     <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu2.FBX" />
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\flyer.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\huraiya-2.FBX" />
     <MeshContentTask Include="Assets\modelData\Poteto\huraiya-3.FBX" />

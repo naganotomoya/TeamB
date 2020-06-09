@@ -1765,6 +1765,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEnd.cpp" />
+    <ClCompile Include="KaraageGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
@@ -1774,6 +1775,7 @@
     <ClCompile Include="SceneKaraage.cpp" />
     <ClCompile Include="SceneMorituke.cpp" />
     <ClCompile Include="ScenePoteto.cpp" />
+    <ClCompile Include="SpriteGenerator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|Win32'">Create</PrecompiledHeader>
@@ -1800,6 +1802,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnd.h" />
+    <ClInclude Include="KaraageGenerator.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
     <CLInclude Include="resource.h" />
@@ -1809,6 +1812,7 @@
     <ClInclude Include="SceneKaraage.h" />
     <ClInclude Include="SceneMorituke.h" />
     <ClInclude Include="ScenePoteto.h" />
+    <ClInclude Include="SpriteGenerator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ResourceCompile Include="Game.rc" />
@@ -1928,6 +1932,22 @@
     <ImageContentTask Include="Assets\sprite\Hiyoko\Chiyoko.png" />
     <ImageContentTask Include="Assets\sprite\Hiyoko\Fhiyoko.png" />
     <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\ba-.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\boy.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\DrinkCH.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\fat.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\girl.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\KaraCH.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\old.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\PoteCH.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\YasaiCH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Karaage\baa.png" />
+    <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png" />
+    <ImageContentTask Include="Assets\sprite\Karaage\CutKyabetu.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

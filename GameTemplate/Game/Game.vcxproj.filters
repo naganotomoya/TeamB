@@ -44,6 +44,9 @@
     <Filter Include="Assets\sprite\Hiyoko">
       <UniqueIdentifier>{cd64018f-fed5-4c01-9a78-c74eb52135a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\sprite\Karaage">
+      <UniqueIdentifier>{592b58e7-3993-4198-8ebe-0ebcdb3ccd7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -60,6 +63,8 @@
     <ClCompile Include="SceneAraimono.cpp" />
     <ClCompile Include="SceneKaikei.cpp" />
     <ClCompile Include="GameEnd.cpp" />
+    <ClCompile Include="SpriteGenerator.cpp" />
+    <ClCompile Include="KaraageGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -78,6 +83,8 @@
     <ClInclude Include="SceneAraimono.h" />
     <ClInclude Include="SceneKaikei.h" />
     <ClInclude Include="GameEnd.h" />
+    <ClInclude Include="SpriteGenerator.h" />
+    <ClInclude Include="KaraageGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -224,6 +231,42 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png">
       <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\ba-.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\boy.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\DrinkCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\fat.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\girl.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\KaraCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\old.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\PoteCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\YasaiCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\baa.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\CutKyabetu.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png">
+      <Filter>Assets\sprite\Karaage</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

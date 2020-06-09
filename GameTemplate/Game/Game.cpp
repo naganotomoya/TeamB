@@ -35,6 +35,8 @@ Game::~Game()
 	DeleteGO(m_kaikei);
 
 	DeleteGO(m_fonttimer);
+	DeleteGO(m_fontkosuu);
+	DeleteGO(m_fontkanseihin);
 }
 bool Game::Start()
 {

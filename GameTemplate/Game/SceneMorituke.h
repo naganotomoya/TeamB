@@ -14,6 +14,10 @@ public:
 	{
 		return Kansei;
 	}
+	void MinusKyabetuKansei()
+	{
+		Kansei--;
+	}
 
 private:
 	Camera* m_camera = nullptr;
@@ -39,6 +43,7 @@ private:
 	CVector3 m_Kscal = CVector3::One;				//キャベツの拡大率
 	CVector3 m_Cutscal = { 0.0f, 0.04f, 0.03f };	//切ったキャベツの拡大率
 	CVector3 m_CutOsara = { 0.0f,0.0f,1.0f };	//{ 0.01f,0.01f,0.01f }お皿のキャベツの拡大率
+	float CutkyabeXScal = 0.015f;				//最終的な大きさ
 	CVector3 KMdiff = CVector3::Zero;				//キャベツとまな板の距離
 	CQuaternion Hanten;								//回転
 

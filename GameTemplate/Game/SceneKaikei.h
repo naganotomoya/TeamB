@@ -42,6 +42,11 @@ public:
 	{
 		KanseiKekka++;
 	}
+	//Œ‹‰Ê‚ð•Ô‚·
+	int ReturnKekka()
+	{
+		return KanseiKekka;
+	}
 	bool Start();
 	void Update();
 

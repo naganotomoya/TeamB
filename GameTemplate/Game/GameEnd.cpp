@@ -12,9 +12,18 @@ GameEnd::~GameEnd()
 	DeleteGO(m_fontkazu);
 	DeleteGO(m_fontPress);
 	DeleteGO(m_hiyoko);
+	DeleteGO(m_doramu);
 }
 bool GameEnd::Start()
 {
+	//カメラを設定。
+	MainCamera().SetTarget({ 0.0f, 0.0f, 0.0f });
+	MainCamera().SetPosition({ 0.0f, 0.0f, 100.0f });
+	MainCamera().SetNear(10.0f);
+	MainCamera().SetFar(1000.0f);
+	MainCamera().Update();
+	MainCamera().Update();
+
 	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);
 	//けっかはっぴょー！
 	m_fontkekka = NewGO<prefab::CFontRender>(0);
@@ -53,6 +62,11 @@ bool GameEnd::Start()
 	m_hiyoko->SetPosition(hiyokoPos);
 	m_hiyoko->SetRotation(Hanten);
 	m_hiyoko->SetScale(hiyokoScale);
+
+	m_doramu = NewGO<prefab::CSoundSource>(0);
+	m_doramu->Init(L"sound/SE/drum.wav");
+	m_doramu->SetVolume(1.0f);
+	m_doramu->Play(true);
 
 
 	return true;
@@ -122,6 +136,12 @@ void GameEnd::SprintCH()
 			MainCamera().GetHeight(),
 			true
 		);
+		prefab::CSoundSource* jyan;
+		jyan = NewGO<prefab::CSoundSource>(0);
+		jyan->Init(L"sound/SE/jyan.wav");
+		jyan->Play(false);
+		m_doramu->SetVolume(0.0f);
+		m_state = owari;
 	}
 	if (m_state == Futuu) {
 		//画像の表示
@@ -131,6 +151,12 @@ void GameEnd::SprintCH()
 			MainCamera().GetHeight(),
 			true
 		);
+		prefab::CSoundSource* jyan;
+		jyan = NewGO<prefab::CSoundSource>(0);
+		jyan->Init(L"sound/SE/jyan.wav");
+		jyan->Play(false);
+		m_doramu->SetVolume(0.0f);
+		m_state = owari;
 	}
 	if (m_state == Kantan) {
 		//画像の表示
@@ -140,6 +166,15 @@ void GameEnd::SprintCH()
 			MainCamera().GetHeight(),
 			true
 		);
+		prefab::CSoundSource* jyan;
+		jyan = NewGO<prefab::CSoundSource>(0);
+		jyan->Init(L"sound/SE/jyan.wav");
+		jyan->Play(false);
+		m_doramu->SetVolume(0.0f);
+		m_state = owari;
+	}
+	if (m_state == owari) {
+
 	}
 }
 
@@ -167,4 +202,5 @@ void GameEnd::Update()
 		}
 	}
 
+	MainCamera().Update();
 }

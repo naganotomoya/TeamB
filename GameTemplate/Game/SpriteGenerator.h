@@ -105,6 +105,6 @@ private:
 	Tyuumon tyuumon[Kaikei];*/
 
 	CVector2 piv = { 0.0f,0.5f };
-
+	bool oto = false;
 };
 

@@ -83,5 +83,7 @@ private:
 		Statekansei
 	};
 	State m_state = StateIdle;
+
+	prefab::CSoundSource* m_age = nullptr;
 };
 

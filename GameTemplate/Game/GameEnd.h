@@ -8,6 +8,10 @@ public:
 	void fontFade();
 	void SprintCH();
 	void Update();
+	void Setnum(int num)
+	{
+		kazu = num;
+	}
 
 private:
 	float timer = 0.0f;
@@ -26,7 +30,7 @@ private:
 	int randamu = 0;
 
 	//Ç±Ç±Ç…ç≈èIåãâ Çì¸ÇÍÇÈ
-	int kazu = 0;
+	int kazu = 5;
 
 	//PressAnyKey
 	prefab::CFontRender* m_fontPress = nullptr;
@@ -43,13 +47,17 @@ private:
 		Big2,
 		Sugoi,
 		Futuu,
-		Kantan
+		Kantan,
+		owari
 	};
 	State m_state = Idle;
 	prefab::CSpriteRender* m_hiyoko = nullptr;
 	CVector3 hiyokoPos = { 70.0f,-20.0f,0.0f };
 	CQuaternion Hanten;
 	CVector3 hiyokoScale = { 0.06f,0.07f,0.06f };
+
+
+	prefab::CSoundSource* m_doramu = nullptr;
 
 };
 

@@ -14,6 +14,7 @@ Title::~Title()
 	DeleteGO(m_fontAgekire);
 	DeleteGO(m_fontKaraage);
 	DeleteGO(m_Press);
+	DeleteGO(m_age);
 
 }
 bool Title::Start()
@@ -39,9 +40,20 @@ bool Title::Start()
 	m_Press->SetPivot({ 0.5f,0.5f });
 	m_Press->SetPosition({ 0.0f,-250.0f });
 
+	m_age = NewGO<prefab::CSoundSource>(0);
+	m_age->Init(L"sound/SE/age.wav");
+	m_age->SetVolume(vol);
+	m_age->Play(true);
 	//MovePos = { 2.0,-1.0f };
 
 	return true;
+}
+void Title::volup()
+{
+	if (vol <= 1.0f) {
+		vol += 0.005f;
+	}
+	m_age->SetVolume(vol);
 }
 void Title::TaxtMove()
 {
@@ -57,17 +69,28 @@ void Title::TaxtMove()
 			//３回目のバウンドならストップ
 			//からあげ！の方の処理に進む
 			if (Bundnum == 3) {
+				prefab::CSoundSource* syakin;
+				syakin = NewGO<prefab::CSoundSource>(0);
+				syakin->Init(L"sound/SE/syakin.wav");
+				syakin->Play(false);
+
 				m_Astate = Stop;
 				m_Kstate = Big;
 			}
 			//それ以下ならUp
 			else {
+				prefab::CSoundSource* puyo;
+				puyo = NewGO<prefab::CSoundSource>(0);
+				puyo->Init(L"sound/SE/puyon.wav");
+				puyo->Play(false);
+
 				m_Astate = Up;
 			}
 		}
 	}
 	//Upステート
 	if (m_Astate == Up) {
+
 		//MoveY += 0.02;
 		AgekirePos.x += 2.0f;
 		AgekirePos.y += MoveY;
@@ -136,7 +159,9 @@ void Title::TaxtMove()
 void Title::Update()
 {
 	TaxtMove();
-
+	if (m_Pstate != Idle) {
+		volup();
+	}
 	if (Pad(0).IsPress(enButtonA) == true) {
 		//もしもaボタンを押されたら。
 		NewGO<Game>(0, "Game");

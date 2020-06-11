@@ -6,6 +6,7 @@ public:
 	~Title();
 	bool Start() override;
 	void TaxtMove();
+	void volup();
 	void Update() override;
 	//prefab::CSpriteRender* m_spriteRender = nullptr;
 private:
@@ -48,4 +49,6 @@ private:
 	PState m_Pstate = PIdle;
 
 	//wchar_t texttimer[256];
+	prefab::CSoundSource* m_age = nullptr;
+	float vol = 0.0f;
 };

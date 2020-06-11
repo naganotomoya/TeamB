@@ -203,6 +203,12 @@ void SpriteGenerator::KaikeiSyori()
 		if (SetPote == true &&
 			SetDrink == true &&
 			SetYasai == true) {
+
+			prefab::CSoundSource* piyo;
+			piyo = NewGO<prefab::CSoundSource>(0);
+			piyo->Init(L"sound/SE/hiyoko.wav");
+			piyo->Play(false);
+
 			m_kaikei->KanseiKo();
 			m_state = NextKaikei;
 		}
@@ -216,6 +222,12 @@ void SpriteGenerator::KaikeiSyori()
 		if (SetKara == true &&
 			SetPote == true &&
 			SetYasai == true) {
+
+			prefab::CSoundSource* piyo;
+			piyo = NewGO<prefab::CSoundSource>(0);
+			piyo->Init(L"sound/SE/hiyoko.wav");
+			piyo->Play(false);
+
 			m_kaikei->KanseiKo();
 			m_state = NextKaikei;
 		}
@@ -229,6 +241,12 @@ void SpriteGenerator::KaikeiSyori()
 		if (SetKara == true &&
 			SetDrink == true &&
 			SetYasai == true) {
+
+			prefab::CSoundSource* piyo;
+			piyo = NewGO<prefab::CSoundSource>(0);
+			piyo->Init(L"sound/SE/hiyoko.wav");
+			piyo->Play(false);
+
 			m_kaikei->KanseiKo();
 			m_state = NextKaikei;
 		}
@@ -242,6 +260,12 @@ void SpriteGenerator::KaikeiSyori()
 		if (SetKara == true &&
 			SetPote == true &&
 			SetDrink == true) {
+
+			prefab::CSoundSource* piyo;
+			piyo = NewGO<prefab::CSoundSource>(0);
+			piyo->Init(L"sound/SE/hiyoko.wav");
+			piyo->Play(false);
+
 			m_kaikei->KanseiKo();
 			m_state = NextKaikei;
 		}
@@ -254,6 +278,13 @@ void SpriteGenerator::NokoriBaa()
 	BaaScale.x = timer / 40.0f;
 	baa->SetScale(BaaScale);
 	if (timer <= 0.0f) {
+		if (oto == false) {
+			prefab::CSoundSource* pien;
+			pien = NewGO<prefab::CSoundSource>(0);
+			pien->Init(L"sound/SE/zannnenn.wav");
+			pien->Play(false);
+			oto = true;
+		}
 		m_state = NextKaikei;
 	}
 }

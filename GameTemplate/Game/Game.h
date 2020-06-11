@@ -12,6 +12,7 @@ class SceneDrink;
 class SceneMorituke;
 class SceneAraimono;
 class SceneKaikei;
+class GameEnd;
 class Game : public IGameObject
 {
 public:
@@ -19,6 +20,7 @@ public:
 	~Game();
 	bool Start();
 	void Update()/* override*/;
+	//void OnDestroy();
 	void KanseiCount();
 
 	//完成品の個数を返す
@@ -45,11 +47,12 @@ private:
 	SceneMorituke* m_morituke = nullptr;
 	SceneAraimono* m_araimono = nullptr;
 	SceneKaikei* m_kaikei = nullptr;
+	GameEnd* m_end = nullptr;
 
 	prefab::CFontRender* m_fonttimer = nullptr;
 	wchar_t texttimer[256];
 	//制限時間
-	float timer = 61.0f;	//タイマー
+	float timer = 11.0f;	//タイマー
 	CVector2 timerPos = { 380.0f,280.0f };
 
 	prefab::CFontRender* m_fontkanseihin = nullptr;
@@ -58,5 +61,8 @@ private:
 	prefab::CFontRender* m_fontkosuu = nullptr;
 	wchar_t textkosuu[256];
 	CVector2 kosuuPos = { 550.0f,185.0f };
+
+	prefab::CSoundSource* m_bgm = nullptr;
+
 };
 

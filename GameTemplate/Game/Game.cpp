@@ -37,6 +37,7 @@ Game::~Game()
 	DeleteGO(m_fonttimer);
 	DeleteGO(m_fontkosuu);
 	DeleteGO(m_fontkanseihin);
+	DeleteGO(m_bgm);
 }
 bool Game::Start()
 {
@@ -73,6 +74,11 @@ bool Game::Start()
 	m_fontkosuu = NewGO<prefab::CFontRender>(0);
 	m_fontkosuu->SetPosition(kosuuPos);
 
+	m_bgm = NewGO<prefab::CSoundSource>(0);
+	m_bgm->Init(L"sound/bgm.wav");
+	m_bgm->SetVolume(0.8f);
+	m_bgm->Play(true);
+
 	return true;
 }
 
@@ -95,7 +101,8 @@ void Game::Update()
 		timer -= GameTime().GetFrameDeltaTime();
 	}
 	else {
-		NewGO<GameEnd>(0, "Gameend");
+		m_end = NewGO<GameEnd>(0, "Gameend");
+		m_end->Setnum(m_kaikei->ReturnKekka());
 		DeleteGO(this);
 	}
 	int minute = (int)timer / 60;

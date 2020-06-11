@@ -17,6 +17,7 @@ KaraageGenerator::~KaraageGenerator()
 	DeleteGO(m_kansei);
 	DeleteGO(baa);
 	DeleteGO(waku);
+	DeleteGO(m_age);
 
 }
 
@@ -75,6 +76,9 @@ bool KaraageGenerator::Start()
 	baa->SetPivot(piv);
 	baa->SetPosition({ -635.0f,230.0f,0.0f });*/
 
+	m_age = NewGO<prefab::CSoundSource>(0);
+	m_age->Init(L"sound/SE/age.wav");
+	m_age->SetVolume(0.0f);
 
 	return true;
 }
@@ -161,7 +165,6 @@ void KaraageGenerator::KaraageSyori()
 				waku->SetRotation(Hanten);
 				waku->SetScale(SScale);
 				waku->SetPosition(wakupos);
-
 				m_karaage->minusNowkara();
 				m_state = Statefry;
 			}
@@ -177,6 +180,10 @@ void KaraageGenerator::KaraageSyori()
 	if (m_state == Statefry) {
 		baaScale.x = KaraageS * 0.0008f;
 		baa->SetScale(baaScale);
+
+		m_age->Play(true);
+		m_age->SetVolume(1.0f);
+
 		//指定した秒数経ったら
 		if (KaraageS >= 10.0f) {
 			//完成したからあげを出す
@@ -193,6 +200,14 @@ void KaraageGenerator::KaraageSyori()
 	}
 	/*完成したからあげがある状態*/
 	if (m_state == Statekansei) {
+
+		if (KAdiff.Length() <= 35.0f) {
+			m_age->SetVolume(0.5f);
+		}
+		else {
+			m_age->SetVolume(0.0f);
+		}
+
 		baa->SetMulColor(baacolor);
 		baaScale.x = (OverS / 2) * 0.0008f;
 		baa->SetScale(baaScale);
@@ -226,12 +241,22 @@ void KaraageGenerator::KaraageSyori()
 			}
 			//遠ければ初期位置に戻す。
 			else {
+				prefab::CSoundSource* bubu;
+				bubu = NewGO<prefab::CSoundSource>(0);
+				bubu->Init(L"sound/SE/cancel.wav");
+				bubu->Play(false);
+
 				OverS = 0.0f;
 				//m_state = StateIdle;
 				DeleteGO(this);
 			}
 			//お皿と近ければ
 			if (KSdiff.Length() <= 20.0f) {
+				prefab::CSoundSource* pikon;
+				pikon = NewGO<prefab::CSoundSource>(0);
+				pikon->Init(L"sound/SE/pikon.wav");
+				pikon->Play(false);
+
 				//完成をプラス、オーバータイムを0にして
 				//StateIdleに移動
 				//KanseiKosuu++;
@@ -262,6 +287,9 @@ void KaraageGenerator::Update()
 		//m_player->RgripAnimation();	//プレイヤーはずっと握っておく。
 		//TongMove();					//トングの動き
 		KaraageSyori();				//からあげの処理
+	}
+	else {
+		m_age->SetVolume(0.0f);
 	}
 	//LかR押したら右手を開く
 	/*if (Pad(0).IsTrigger(enButtonRB1) ||

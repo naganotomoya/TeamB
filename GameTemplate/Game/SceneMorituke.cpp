@@ -10,6 +10,7 @@ SceneMorituke::~SceneMorituke()
 	DeleteGO(m_kyabetu);
 	DeleteGO(m_houtyou);
 	DeleteGO(m_manaita);
+	DeleteGO(m_osara);
 	DeleteGO(m_cutOkyabetu);
 }
 
@@ -95,6 +96,12 @@ void SceneMorituke::Cut()
 	KMdiff = m_manaitapos - m_houtyoupos;
 	if (KMdiff.Length() <= 50.0f) {
 		if (Pad(0).IsTrigger(enButtonB)) {
+
+			prefab::CSoundSource* cut;
+			cut = NewGO<prefab::CSoundSource>(0);
+			cut->Init(L"sound/SE/Cut.wav");
+			cut->Play(false);
+
 			//m_player->setRHandZ(0.0f);
 			//カットカウントをプラスする。
 			Cutcount--;

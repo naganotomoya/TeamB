@@ -282,6 +282,7 @@ void KaraageGenerator::KaraageSyori()
 
 void KaraageGenerator::Update()
 {
+	KaraageSyori();				//からあげの処理
 	//今のシーンがからあげの処理なら、動かす
 		//カーソルをReturnMowSceneに持っていったらどの番号がどのシーンかわかります。
 	nowscene = m_camera->ReturnNowScene();
@@ -289,7 +290,7 @@ void KaraageGenerator::Update()
 		m_Tongposition = m_karaage->ReturnTongPos();
 		//m_player->RgripAnimation();	//プレイヤーはずっと握っておく。
 		//TongMove();					//トングの動き
-		KaraageSyori();				//からあげの処理
+		//KaraageSyori();				//からあげの処理
 	}
 	else {
 		m_age->SetVolume(0.0f);

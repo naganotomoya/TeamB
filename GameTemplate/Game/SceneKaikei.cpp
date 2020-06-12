@@ -13,6 +13,7 @@ SceneKaikei::SceneKaikei()
 }
 SceneKaikei::~SceneKaikei()
 {
+	DeleteGO(m_spriteYogore);
 	QueryGOs<SpriteGenerator>("spritegenerator",
 		[](SpriteGenerator* Spritegenerator)->bool {
 			DeleteGO(Spritegenerator);

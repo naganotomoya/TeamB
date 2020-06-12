@@ -286,7 +286,6 @@ void SceneDrink::Animation(CVector3& pos)
 
 void SceneDrink::MizuUI()
 {
-	
 	if (timer <= 5.0f) {
 		mizuclo.w = 1.0f;
 		MizuSpriteScale.y = timer * 0.2f;
@@ -311,7 +310,6 @@ void SceneDrink::MizuUI()
 		MizuSpriteScale.y = 0.0f;
 		mizuclo.w = 0.0f;
 	}
-
 	d_spriteRendermizu->SetMulColor(mizuclo);
 	d_spriteRendermizu->SetScale(MizuSpriteScale);
 }
@@ -322,7 +320,6 @@ void SceneDrink::Update()
 	Animation(m_position);
 	Animation(m_position2);
 	MizuUI();
-
 
 	//timer += GameTime().GetFrameDeltaTime();
 

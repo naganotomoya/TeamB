@@ -33,7 +33,7 @@ public:
 	{
 		Kanseimizu--;
 	}
-	//お茶の完成をマイナす
+	//お茶の完成をマイナス
 	void minusOtya()
 	{
 		Kanseiotya--;
@@ -71,7 +71,7 @@ private:
 	//CVector3 SC = { 0.05f,0.08f,0.05f };
 	CVector3 SC = { 1.2f,1.2f,1.2f };
 	CVector3 MizuSpriteScale = { 1.2f,0.0f,1.2f };
-	CVector4 mizuclo = { 1.0f,1.0f,1.0f,0.0f };
+	CVector4 mizuclo = { 0.1f,0.0f,0.0f,0.0f };
 	bool Clost = false;
 
 	Camera* m_camera = nullptr;

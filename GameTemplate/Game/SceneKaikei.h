@@ -47,11 +47,18 @@ public:
 	{
 		return KanseiKekka;
 	}
+	bool ReturnYogore()
+	{
+		return Yogore;
+	}
 	bool Start();
 	void Update();
+	void YogoreSyori();
 
 private:
 	SpriteGenerator* m_spriteGene = nullptr;
+
+	prefab::CSpriteRender* m_spriteYogore = nullptr;
 
 	SceneKaraage* m_karaage = nullptr;
 	ScenePoteto* m_poteto = nullptr;
@@ -76,6 +83,8 @@ private:
 	Tyuumon Kaikei[kyakunum];*/
 	//次の注文が発生するまでの秒数
 	float timer = 10.0f;
+	//汚れ用タイマー
+	float Yogoretimer = 0.0f;
 	//今のお客さんの人数
 	int ninzuu = 0;
 	//お客さんをランダムで決める
@@ -86,7 +95,13 @@ private:
 	int kyakunum = 0;
 	//今処理しているお客さん
 	int Nowscene = 0;
-
+	//洗い物の数
+	int kirei = 0;
+	//int karikirei = 0;
+	//汚れ用
+	int kitanai = 0;
+	//int kari = 0;
+	float CL = 0.0f;
 
 	int num = 1;
 
@@ -100,6 +115,15 @@ private:
 	bool Yogore = true;
 
 	int KanseiKekka = 0;	//処理したお客さんの人数
+
+	enum State
+	{
+		keisann,
+		purasu,
+		kaeru,
+		kitanaine
+	};
+	State m_state = keisann;
 
 	//CVector3 m_position = { -6400.0f,-15.0f,-20.0f };
 

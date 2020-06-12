@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
 #include "Game.h"
+#include "HaikeiMove.h"
 
 
 Title::Title()
@@ -15,10 +16,17 @@ Title::~Title()
 	DeleteGO(m_fontKaraage);
 	DeleteGO(m_Press);
 	DeleteGO(m_age);
+	DeleteGO(haikei);
 
 }
 bool Title::Start()
 {
+	//カメラを設定。
+	MainCamera().SetTarget({ 0.0f, 0.0f, 0.0f });
+	MainCamera().SetPosition({ 0.0f, 0.0f, 100.0f });
+	MainCamera().SetNear(10.0f);
+	MainCamera().SetFar(1000.0f);
+	MainCamera().Update();
 	/*m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender->Init(L"sprite/sneak-kill.dds", 1280.0f, 720.0f);*/
 
@@ -45,6 +53,20 @@ bool Title::Start()
 	m_age->SetVolume(vol);
 	m_age->Play(true);
 	//MovePos = { 2.0,-1.0f };
+
+	//Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);	//反転
+	//m_haikei = NewGO<prefab::CSpriteRender>(0);
+	//m_haikei->Init(
+	//	L"sprite/Phaikei/Abura.dds",
+	//	MainCamera().GetWidth(),
+	//	MainCamera().GetHeight(),
+	//	true	//3D表示
+	//);
+	//m_haikei->SetScale({ 0.04f,0.08f,0.05f });
+	//HKpos = { -8.5f,0.0f,-2.5f };
+	//m_haikei->SetPosition(HKpos);
+	//m_haikei->SetRotation(Hanten);					//反転を適応
+	haikei = NewGO<HaikeiMove>(0, "haikeimove");
 
 	return true;
 }
@@ -167,4 +189,5 @@ void Title::Update()
 		NewGO<Game>(0, "Game");
 		DeleteGO(this);
 	}
+	MainCamera().Update();
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
 #include "GameEnd.h"
+#include "HaikeiMove.h"
 GameEnd::GameEnd()
 {
 }
@@ -13,6 +14,7 @@ GameEnd::~GameEnd()
 	DeleteGO(m_fontPress);
 	DeleteGO(m_hiyoko);
 	DeleteGO(m_doramu);
+	DeleteGO(haikei);
 }
 bool GameEnd::Start()
 {
@@ -23,6 +25,8 @@ bool GameEnd::Start()
 	MainCamera().SetFar(1000.0f);
 	MainCamera().Update();
 	MainCamera().Update();
+
+	haikei = NewGO<HaikeiMove>(0, "haikei");
 
 	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);
 	//‚¯‚Á‚©‚Í‚Á‚Ò‚å[I
@@ -56,11 +60,11 @@ bool GameEnd::Start()
 		L"sprite/Hiyoko/Fhiyoko.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
-		true
+		false
 	);
 	m_hiyoko->SetPivot({ CenterPivot });
 	m_hiyoko->SetPosition(hiyokoPos);
-	m_hiyoko->SetRotation(Hanten);
+	//m_hiyoko->SetRotation(Hanten);
 	m_hiyoko->SetScale(hiyokoScale);
 
 	m_doramu = NewGO<prefab::CSoundSource>(0);
@@ -100,7 +104,7 @@ void GameEnd::SprintCH()
 	//ˆê‰ñ–Ú‚ÌŠg‘å
 	if (m_state == Big) {
 		//‰æ‘œ‚ÌŠg‘å—¦‚ğ•Ï‚¦‚é
-		m_hiyoko->SetScale({ 0.1f,0.1f,0.1f });
+		m_hiyoko->SetScale({ 0.7f,0.7f,0.7f });
 		if (timer >= 4.0f) {
 			m_state = Big2;
 		}
@@ -108,7 +112,7 @@ void GameEnd::SprintCH()
 	//“ñ‰ñ–Ú‚ÌŠg‘å
 	if (m_state == Big2) {
 		//‰æ‘œ‚ÌŠg‘å—¦‚ğ•Ï‚¦‚é
-		m_hiyoko->SetScale({ 0.15f,0.15f,0.15f });
+		m_hiyoko->SetScale({ 0.9f,0.9f,0.9f });
 		if (timer >= 8.0f) {
 			m_hiyoko->SetScale(hiyokoScale);
 			//Š®¬ŒÂ”‚É‚æ‚Á‚Ä‰æ‘œ‚ğ•Ï‚¦‚é
@@ -134,7 +138,7 @@ void GameEnd::SprintCH()
 			L"sprite/Hiyoko/Chiyoko.dds",
 			MainCamera().GetWidth(),
 			MainCamera().GetHeight(),
-			true
+			false
 		);
 		prefab::CSoundSource* jyan;
 		jyan = NewGO<prefab::CSoundSource>(0);
@@ -149,7 +153,7 @@ void GameEnd::SprintCH()
 			L"sprite/Hiyoko/Fhiyoko.dds",
 			MainCamera().GetWidth(),
 			MainCamera().GetHeight(),
-			true
+			false
 		);
 		prefab::CSoundSource* jyan;
 		jyan = NewGO<prefab::CSoundSource>(0);
@@ -164,7 +168,7 @@ void GameEnd::SprintCH()
 			L"sprite/Hiyoko/Whiyoko.dds",
 			MainCamera().GetWidth(),
 			MainCamera().GetHeight(),
-			true
+			false
 		);
 		prefab::CSoundSource* jyan;
 		jyan = NewGO<prefab::CSoundSource>(0);

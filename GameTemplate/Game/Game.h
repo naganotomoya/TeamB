@@ -52,7 +52,7 @@ private:
 	prefab::CFontRender* m_fonttimer = nullptr;
 	wchar_t texttimer[256];
 	//制限時間
-	float timer = 11.0f;	//タイマー
+	float timer = 181.0f;	//タイマー
 	CVector2 timerPos = { 380.0f,280.0f };
 
 	prefab::CFontRender* m_fontkanseihin = nullptr;
@@ -63,6 +63,6 @@ private:
 	CVector2 kosuuPos = { 550.0f,185.0f };
 
 	prefab::CSoundSource* m_bgm = nullptr;
-
+	bool FNew = false;
 };
 

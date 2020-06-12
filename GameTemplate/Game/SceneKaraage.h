@@ -1,4 +1,5 @@
 #pragma once
+#include "tkEngine/physics/tkPhysicsGhostObject.h"
 class Player;
 class Camera;
 class KaraageGenerator;
@@ -89,8 +90,16 @@ private:
 	};
 	State m_state = StateIdle;*/
 
+	enum Tongani {
+		open,
+		grip,
+		Num,	//アニメーションクリップの数。
+	};
+	CAnimationClip ani[Num];	//アニメーションクリップ。
 	/*prefab::CFontRender* m_fontkansei = nullptr;
 	wchar_t text[256];*/
+	CPhysicsGhostObject m_Gosara;
+	CVector3 m_Gpos = CVector3::Zero;
 };
 
 

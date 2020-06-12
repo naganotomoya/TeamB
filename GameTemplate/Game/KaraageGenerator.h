@@ -49,7 +49,7 @@ private:
 	CVector3 m_Knseiposition = CVector3::Zero;			//完成からあげのポジション
 	CVector3 m_KnseiStartposition = { 0.0f,-100.0f,-5.0f };			//完成からあげの初期ポジション
 	//CVector3 m_Sposition = CVector3::Zero;			//お皿のポジション
-	CVector3 m_Sposition = { -60.0f,0.0f,-10.0f };
+	CVector3 m_Sposition = { -70.0f,5.0f,-10.0f };
 	//CQuaternion m_Trotation = CQuaternion::Identity;	//トング回転。
 	//CQuaternion m_Srotation = CQuaternion::Identity;	//お皿回転。
 	//prefab::CSpriteRender* m_abura = nullptr;		//油の２D
@@ -85,5 +85,7 @@ private:
 	State m_state = StateIdle;
 
 	prefab::CSoundSource* m_age = nullptr;
+
+	//float karaclo = 0.0f; //乗算カラー
 };
 

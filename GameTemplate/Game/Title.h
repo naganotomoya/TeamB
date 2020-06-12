@@ -1,4 +1,5 @@
 #pragma once
+class HaikeiMove;
 class Title : public IGameObject
 {
 public:
@@ -13,6 +14,11 @@ private:
 	prefab::CFontRender* m_fontAgekire = nullptr;
 	prefab::CFontRender* m_fontKaraage = nullptr;
 	prefab::CFontRender* m_Press = nullptr;
+
+	HaikeiMove* haikei = nullptr;
+	//prefab::CSpriteRender* m_haikei = nullptr;
+	//CVector3 HKpos = CVector3::Zero;
+	//CQuaternion Hanten;								//‰ñ“]
 
 
 	CVector3 AKcolor = { 0.95f,0.5f,0.2f };

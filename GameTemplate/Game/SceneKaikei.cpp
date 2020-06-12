@@ -35,7 +35,44 @@ bool SceneKaikei::Start()
 	m_drink = FindGO<SceneDrink>("drink");
 	m_araimono = FindGO<SceneAraimono>("araimono");
 
+
+	m_spriteYogore = NewGO<prefab::CSpriteRender>(0);
+	m_spriteYogore->Init(
+		L"sprite/Karaage/kurai.dds",
+		MainCamera().GetWidth(),
+		MainCamera().GetHeight(),
+		false
+	);
+	m_spriteYogore->SetMulColor({ 1.0f,1.0f,1.0f ,0.0f });
+
 	return true;
+}
+
+void SceneKaikei::YogoreSyori()
+{
+	kirei = m_araimono->ReturnPoteto();
+	Yogoretimer += GameTime().GetFrameDeltaTime();
+
+	if (Yogoretimer >= 20.0f) {
+		kitanai++;
+		Yogoretimer = 0.0f;
+	}
+	if (kirei < kitanai) {
+		Yogore = false;
+		if (CL <= 0.8f) {
+			CL += 0.0005f;
+		}
+		else {
+			CL = 0.8f;
+		}
+		m_spriteYogore->SetMulColor({ 1.0f,1.0f,1.0f ,CL });
+	}
+	else {
+		Yogore = true;
+		CL = 0.0f;
+		m_spriteYogore->SetMulColor({ 1.0f,1.0f,1.0f ,0.0f });
+	}
+
 }
 
 void SceneKaikei::SetKyakuNum()
@@ -60,6 +97,7 @@ void SceneKaikei::NextTyuumon()
 
 void SceneKaikei::Update()
 {
+	YogoreSyori();
 	timer += GameTime().GetFrameDeltaTime();
 	//タイマーが20かつ、お客さんが少ない、かつ洗い物が出来ていれば
 	if (timer >= 5.0f &&

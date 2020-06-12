@@ -279,11 +279,13 @@ void SpriteGenerator::NokoriBaa()
 	baa->SetScale(BaaScale);
 	if (timer <= 0.0f) {
 		if (oto == false) {
-			prefab::CSoundSource* pien;
-			pien = NewGO<prefab::CSoundSource>(0);
-			pien->Init(L"sound/SE/zannnenn.wav");
-			pien->Play(false);
-			oto = true;
+			if (m_state != NextKaikei) {
+				prefab::CSoundSource* pien;
+				pien = NewGO<prefab::CSoundSource>(0);
+				pien->Init(L"sound/SE/zannnenn.wav");
+				pien->Play(false);
+				oto = true;
+			}
 		}
 		m_state = NextKaikei;
 	}

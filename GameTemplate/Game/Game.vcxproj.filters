@@ -47,6 +47,9 @@
     <Filter Include="Assets\sprite\Karaage">
       <UniqueIdentifier>{592b58e7-3993-4198-8ebe-0ebcdb3ccd7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\KaraageS\kara">
+      <UniqueIdentifier>{6a7fc206-8b78-431f-a772-b8da7c460e34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -65,6 +68,7 @@
     <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="SpriteGenerator.cpp" />
     <ClCompile Include="KaraageGenerator.cpp" />
+    <ClCompile Include="HaikeiMove.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -85,6 +89,7 @@
     <ClInclude Include="GameEnd.h" />
     <ClInclude Include="SpriteGenerator.h" />
     <ClInclude Include="KaraageGenerator.h" />
+    <ClInclude Include="HaikeiMove.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -154,6 +159,15 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +280,12 @@
       <Filter>Assets\sprite\Karaage</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\hiyokohaikei.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\kurai.png">
       <Filter>Assets\sprite\Karaage</Filter>
     </ImageContentTask>
   </ItemGroup>

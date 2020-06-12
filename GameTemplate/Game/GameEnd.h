@@ -1,4 +1,5 @@
 #pragma once
+class HaikeiMove;
 class GameEnd : public IGameObject
 {
 public:
@@ -8,12 +9,17 @@ public:
 	void fontFade();
 	void SprintCH();
 	void Update();
-	void Setnum(int num)
+	void Setnum(int &num)
 	{
 		kazu = num;
 	}
+	int Kanseikosuu()
+	{
+		return kazu;
+	}
 
 private:
+	HaikeiMove* haikei = nullptr;
 	float timer = 0.0f;
 	CVector2 CenterPivot = { 0.5f,0.5f };
 	//Resultのテキスト
@@ -30,7 +36,7 @@ private:
 	int randamu = 0;
 
 	//ここに最終結果を入れる
-	int kazu = 5;
+	int kazu = 0;
 
 	//PressAnyKey
 	prefab::CFontRender* m_fontPress = nullptr;
@@ -52,9 +58,10 @@ private:
 	};
 	State m_state = Idle;
 	prefab::CSpriteRender* m_hiyoko = nullptr;
-	CVector3 hiyokoPos = { 70.0f,-20.0f,0.0f };
+	CVector3 hiyokoPos = { -400.0f,-150.0f,0.0f };
 	CQuaternion Hanten;
-	CVector3 hiyokoScale = { 0.06f,0.07f,0.06f };
+	//CVector3 hiyokoScale = { 0.06f,0.07f,0.0f };
+	CVector3 hiyokoScale = { 0.5f,0.5f,0.0f };
 
 
 	prefab::CSoundSource* m_doramu = nullptr;

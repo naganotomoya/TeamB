@@ -1765,6 +1765,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEnd.cpp" />
+    <ClCompile Include="HaikeiMove.cpp" />
     <ClCompile Include="KaraageGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -1802,6 +1803,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnd.h" />
+    <ClInclude Include="HaikeiMove.h" />
     <ClInclude Include="KaraageGenerator.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProgressBar.h" />
@@ -1827,6 +1829,9 @@
     <MeshContentTask Include="Assets\modelData\hito1.FBX" />
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX" />
@@ -1948,6 +1953,12 @@
     <ImageContentTask Include="Assets\sprite\Karaage\baa.png" />
     <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png" />
     <ImageContentTask Include="Assets\sprite\Karaage\CutKyabetu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\hiyokohaikei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Karaage\kurai.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

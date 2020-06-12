@@ -35,7 +35,8 @@ bool KaraageGenerator::Start()
 	//m_tong->SetScale({ 2.0f,2.0f,2.0f });
 	////生のからあげ
 	m_nama = NewGO<prefab::CSkinModelRender>(0);
-	m_nama->Init(L"modelData/KaraageS/Nama.cmo");
+	//m_nama->Init(L"modelData/KaraageS/Nama.cmo");
+	m_nama->Init(L"modelData/KaraageS/kara/namakara.cmo");
 	m_Kposition = { 74.0f,0.0f,-5.0f };
 	m_StartPos = m_Kposition;
 	m_nama->SetPosition(m_Kposition);
@@ -187,7 +188,8 @@ void KaraageGenerator::KaraageSyori()
 		//指定した秒数経ったら
 		if (KaraageS >= 10.0f) {
 			//完成したからあげを出す
-			m_kansei->Init(L"modelData/KaraageS/Kansei.cmo");
+			//m_kansei->Init(L"modelData/KaraageS/Kansei.cmo");
+			m_kansei->Init(L"modelData/KaraageS/kara/Age.cmo");
 			m_Knseiposition = m_Kposition;
 			//m_Kposition = m_StartPos;
 			m_nama->SetScale(ZeroScale);
@@ -239,32 +241,33 @@ void KaraageGenerator::KaraageSyori()
 			if (KAdiff.Length() <= 35.0f) {
 
 			}
-			//遠ければ初期位置に戻す。
 			else {
-				prefab::CSoundSource* bubu;
-				bubu = NewGO<prefab::CSoundSource>(0);
-				bubu->Init(L"sound/SE/cancel.wav");
-				bubu->Play(false);
+				//お皿と近ければ
+				if (KSdiff.Length() <= 20.0f) {
+					prefab::CSoundSource* pikon;
+					pikon = NewGO<prefab::CSoundSource>(0);
+					pikon->Init(L"sound/SE/pikon.wav");
+					pikon->Play(false);
 
-				OverS = 0.0f;
-				//m_state = StateIdle;
-				DeleteGO(this);
-			}
-			//お皿と近ければ
-			if (KSdiff.Length() <= 20.0f) {
-				prefab::CSoundSource* pikon;
-				pikon = NewGO<prefab::CSoundSource>(0);
-				pikon->Init(L"sound/SE/pikon.wav");
-				pikon->Play(false);
+					//完成をプラス、オーバータイムを0にして
+					//StateIdleに移動
+					//KanseiKosuu++;
+					m_karaage->PlusKaraageKansei();
+					OverS = 0.0f;
+					//m_state = StateIdle;
+					DeleteGO(this);
 
-				//完成をプラス、オーバータイムを0にして
-				//StateIdleに移動
-				//KanseiKosuu++;
-				m_karaage->PlusKaraageKansei();
-				OverS = 0.0f;
-				//m_state = StateIdle;
-				DeleteGO(this);
+				}//遠ければ初期位置に戻す。
+				else {
+					prefab::CSoundSource* bubu;
+					bubu = NewGO<prefab::CSoundSource>(0);
+					bubu->Init(L"sound/SE/cancel.wav");
+					bubu->Play(false);
 
+					OverS = 0.0f;
+					//m_state = StateIdle;
+					DeleteGO(this);
+				}
 			}
 		}
 		//オーバータイムが指定以上になったら
@@ -304,10 +307,12 @@ void KaraageGenerator::Update()
 	if (m_state == Statekansei /*&&
 		!Pad(0).IsPress(enButtonB)*/) {
 		OverS -= GameTime().GetFrameDeltaTime();
+		//karaclo = (19-OverS) / 20.0f;
 	}
 	m_nama->SetPosition(m_Kposition);
 	m_kansei->SetPosition(m_Knseiposition);
 
+	//m_kansei->SetEmissionColor({ 0.0f, 0.0f, karaclo });
 	//m_nama->SetEmissionColor({ 1.0f,1.0f,1.0f });
 	/*CVector3 colar;
 	colar.x = 0.0f;

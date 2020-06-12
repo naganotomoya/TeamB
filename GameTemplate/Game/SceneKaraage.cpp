@@ -25,17 +25,22 @@ SceneKaraage::~SceneKaraage()
 
 bool SceneKaraage::Start()
 {
+
 	m_gene = NewGO<KaraageGenerator>(0, "karaagegenerator");
 	m_camera = FindGO<Camera>("camera");
 	m_player = FindGO<Player>("player");
 	m_gene = FindGO<KaraageGenerator>("karaagegenerator");
 	//トング
 	m_tong = NewGO<prefab::CSkinModelRender>(0, "tong");
-	m_tong->Init(L"modelData/tongs.cmo");
+	ani[open].Load(L"animData/Hand/OPTong.tka");
+	ani[grip].Load(L"animData/Hand/Tong.tka");
+	ani[open].SetLoopFlag(false);
+	ani[grip].SetLoopFlag(false);
+	m_tong->Init(L"modelData/KaraageS/kara/tong.cmo", ani, Num);
 	//モデル調整したら下のは多分いらない。
-	m_Trotation.SetRotationDeg(CVector3::AxisX, 180.0f);
-	m_tong->SetRotation(m_Trotation);
-	m_tong->SetScale({ 2.0f,2.0f,2.0f });
+	/*m_Trotation.SetRotationDeg(CVector3::AxisX, 180.0f);
+	m_tong->SetRotation(m_Trotation);*/
+	m_tong->SetScale({ 1.5f,1.5f,1.5f });
 	////生のからあげ
 	//m_nama = NewGO<prefab::CSkinModelRender>(0, "nama");
 	//m_nama->Init(L"modelData/KaraageS/Nama.cmo");
@@ -72,6 +77,14 @@ bool SceneKaraage::Start()
 	//m_kansei->SetPosition(m_Knseiposition);
 
 	//m_fontkansei = NewGO<prefab::CFontRender>(0);
+	m_Gpos = { -70.0f,5.0f,-10.0f };
+	//PhysicsWorld().SetDebugDrawMode(btIDebugDraw::DBG_DrawWireframe);
+	//ボックス形状のゴーストを作成する。
+	m_Gosara.CreateBox(
+		m_Gpos,	//第一引数は座標。
+		CQuaternion::Identity,		//第二引数は回転クォータニオン。
+		{ 30.0f, 30.0f, 15.0f }	//第三引数はボックスのサイズ。
+	);
 
 	return true;
 }
@@ -81,10 +94,17 @@ void SceneKaraage::TongMove()
 	//プレイヤーのポジションを使って
 	//トングのポジションにする
 	m_Tposition = m_player->ReturnRPlayerPosition();
-	m_Tposition.x += 2.0f;
+	//m_Tposition.x += 2.0f;
 	m_Tposition.y += 25.0f;
-	m_Tposition.z += -3.0f;
+	m_Tposition.z += -5.0f;
 	m_tong->SetPosition(m_Tposition);
+
+	if (Pad(0).IsPress(enButtonB)) {
+		m_tong->PlayAnimation(grip);
+	}
+	else {
+		m_tong->PlayAnimation(open);
+	}
 }
 
 //void SceneKaraage::KaraageMove(CVector3& pos, float dif)

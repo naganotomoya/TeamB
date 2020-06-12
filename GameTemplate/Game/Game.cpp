@@ -101,9 +101,17 @@ void Game::Update()
 		timer -= GameTime().GetFrameDeltaTime();
 	}
 	else {
-		m_end = NewGO<GameEnd>(0, "Gameend");
-		m_end->Setnum(m_kaikei->ReturnKekka());
-		DeleteGO(this);
+		if (FNew == false) {
+			m_end = NewGO<GameEnd>(0, "Gameend");
+			FNew = true;
+		}
+		int karinum = m_kaikei->ReturnKekka();
+		m_end->Setnum(karinum);
+		int KS = m_end->Kanseikosuu();
+		if (karinum == KS){
+			DeleteGO(this);
+		}
+
 	}
 	int minute = (int)timer / 60;
 	float sec = (int)timer % 60;
@@ -112,5 +120,10 @@ void Game::Update()
 
 	swprintf_s(textkosuu, L"%02d", Kansei);
 	m_fontkosuu->SetText(textkosuu);
-
+	if (m_kaikei->ReturnYogore() == false) {
+		m_bgm->SetVolume(0.2f);
+	}
+	else {
+		m_bgm->SetVolume(0.8f);
+	}
 }

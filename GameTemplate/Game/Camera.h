@@ -36,7 +36,7 @@ private:
 		Drink,		//2
 		Morituke,	//3
 		Araimono,	//4
-		Kaikei,		//5
+		//Kaikei,		//5
 		SceneNum
 	};
 
@@ -51,7 +51,7 @@ private:
 	prefab::CSpriteRender* m_spriteDrink = nullptr;
 	prefab::CSpriteRender* m_spriteMorituke = nullptr;
 	prefab::CSpriteRender* m_spriteAraimono = nullptr;
-	prefab::CSpriteRender* m_spriteKaikei = nullptr;
+	//prefab::CSpriteRender* m_spriteKaikei = nullptr;
 	CQuaternion Hanten;
 	prefab::CDirectionLight* lig = nullptr;
 };

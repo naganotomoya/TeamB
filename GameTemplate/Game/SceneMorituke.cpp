@@ -10,6 +10,7 @@ SceneMorituke::~SceneMorituke()
 	DeleteGO(m_kyabetu);
 	DeleteGO(m_houtyou);
 	DeleteGO(m_manaita);
+	DeleteGO(m_osara);
 	DeleteGO(m_cutOkyabetu);
 }
 
@@ -19,7 +20,7 @@ bool SceneMorituke::Start()
 	m_player = FindGO<Player>("player");
 	//キャベツ
 	m_kyabetu = NewGO<prefab::CSkinModelRender>(0, "kyabetu");
-	m_kyabetu->Init(L"modelData/MoritukeS/Kyabetu2.cmo");
+	m_kyabetu->Init(L"modelData/MoritukeS/Kyabetu3.cmo");
 	m_kyabetu->SetScale(m_Kscal);
 	m_kyabetu->SetPosition(m_kyabetupos);
 	//包丁
@@ -62,7 +63,7 @@ bool SceneMorituke::Start()
 	//お皿のきゃべつ
 	m_cutOkyabetu = NewGO<prefab::CSpriteRender>(0);
 	m_cutOkyabetu->Init(
-		L"sprite/Phaikei/Cutkyabetu.dds",
+		L"sprite/Karaage/CutKyabetu.dds",
 		MainCamera().GetWidth(),
 		MainCamera().GetHeight(),
 		true	//3D表示
@@ -95,6 +96,12 @@ void SceneMorituke::Cut()
 	KMdiff = m_manaitapos - m_houtyoupos;
 	if (KMdiff.Length() <= 50.0f) {
 		if (Pad(0).IsTrigger(enButtonB)) {
+
+			prefab::CSoundSource* cut;
+			cut = NewGO<prefab::CSoundSource>(0);
+			cut->Init(L"sound/SE/Cut.wav");
+			cut->Play(false);
+
 			//m_player->setRHandZ(0.0f);
 			//カットカウントをプラスする。
 			Cutcount--;
@@ -102,12 +109,12 @@ void SceneMorituke::Cut()
 			m_Kscal.x -= 1.0f / CT;
 			//m_Cutscal.x += 0.02f / CT;
 			//お皿に盛られるキャベツの拡大率
-			m_CutOsara.x += 0.01f / (CT / 2);
-			m_CutOsara.y += 0.01f / (CT / 2);
+			m_CutOsara.x += CutkyabeXScal / (CT / 2);
+			m_CutOsara.y += CutkyabeXScal / (CT / 2);
 			//キャベツがお皿いっぱいになったら、
 			//0にする。
-			if (m_CutOsara.x >= 0.01f ||
-				m_CutOsara.y >= 0.01f) {
+			if (m_CutOsara.x >= CutkyabeXScal ||
+				m_CutOsara.y >= CutkyabeXScal) {
 				m_CutOsara.x = 0.0f;
 				m_CutOsara.y = 0.0f;
 				//完成個数を増やす。

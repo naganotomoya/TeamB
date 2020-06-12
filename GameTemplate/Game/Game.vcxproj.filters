@@ -41,6 +41,12 @@
     <Filter Include="Assets\modelData\dorinkuba">
       <UniqueIdentifier>{cdaff80a-a40c-4d2c-bea0-f1d9ee714ca3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\sprite\Hiyoko">
+      <UniqueIdentifier>{cd64018f-fed5-4c01-9a78-c74eb52135a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\sprite\Karaage">
+      <UniqueIdentifier>{592b58e7-3993-4198-8ebe-0ebcdb3ccd7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -56,6 +62,9 @@
     <ClCompile Include="SceneMorituke.cpp" />
     <ClCompile Include="SceneAraimono.cpp" />
     <ClCompile Include="SceneKaikei.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
+    <ClCompile Include="SpriteGenerator.cpp" />
+    <ClCompile Include="KaraageGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -73,6 +82,9 @@
     <ClInclude Include="SceneMorituke.h" />
     <ClInclude Include="SceneAraimono.h" />
     <ClInclude Include="SceneKaikei.h" />
+    <ClInclude Include="GameEnd.h" />
+    <ClInclude Include="SpriteGenerator.h" />
+    <ClInclude Include="KaraageGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -139,6 +151,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX">
+      <Filter>Assets\modelData\MoritukeS</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -208,11 +223,51 @@
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\mizu.png" />
-    <ImageContentTask Include="Assets\sprite\kara.png" />
-    <ImageContentTask Include="Assets\sprite\sutoro-.png" />
-    <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
-    <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Chiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Fhiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\Whiyoko.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\ba-.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\boy.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\DrinkCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\fat.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\girl.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\KaraCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\old.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\PoteCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\YasaiCH.png">
+      <Filter>Assets\sprite\Hiyoko</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\baa.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\CutKyabetu.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png">
+      <Filter>Assets\sprite\Karaage</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">
@@ -293,9 +348,5 @@
     <CustomBuild Include="Assets\effect\Poteto.efk">
       <Filter>Assets\effect</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\sprite\ko-ra.png" />
-    <Image Include="Assets\sprite\otya.png" />
   </ItemGroup>
 </Project>

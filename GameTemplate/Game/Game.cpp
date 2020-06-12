@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Title.h"
-#include "ProgressBar.h"
+//#include "ProgressBar.h"
 #include "Player.h"
 #include "Camera.h"
 #include "SceneKaraage.h"
@@ -10,7 +10,7 @@
 #include "SceneMorituke.h"
 #include "SceneAraimono.h"
 #include "SceneKaikei.h"
-//#include "GameEnd.h"
+#include "GameEnd.h"
 #include "tkEngine/light/tkDirectionLight.h"
 
 Game::Game()
@@ -21,9 +21,10 @@ Game::Game()
 Game::~Game()
 {
 
+	//
 	//DeleteGO(m_skinModelRender);
 	DeleteGO(m_spriteRender);
-	DeleteGO(Progressbar);
+	//DeleteGO(Progressbar);
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 	DeleteGO(m_karaage);
@@ -34,6 +35,9 @@ Game::~Game()
 	DeleteGO(m_kaikei);
 
 	DeleteGO(m_fonttimer);
+	DeleteGO(m_fontkosuu);
+	DeleteGO(m_fontkanseihin);
+	DeleteGO(m_bgm);
 }
 bool Game::Start()
 {
@@ -48,7 +52,7 @@ bool Game::Start()
 	//m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	//m_spriteRender->Init(L"sprite/phaikei.dds", 1280.0f, 720.0f);
 
-	Progressbar = NewGO<ProgressBar>(0);
+	//Progressbar = NewGO<ProgressBar>(0);
 	m_player = NewGO<Player>(0, "player");
 	m_camera = NewGO<Camera>(0, "camera");
 	m_karaage = NewGO<SceneKaraage>(0, "karaage");
@@ -69,6 +73,11 @@ bool Game::Start()
 	//m_fontkanseihin->SetScale(2.0f);
 	m_fontkosuu = NewGO<prefab::CFontRender>(0);
 	m_fontkosuu->SetPosition(kosuuPos);
+
+	m_bgm = NewGO<prefab::CSoundSource>(0);
+	m_bgm->Init(L"sound/bgm.wav");
+	m_bgm->SetVolume(0.8f);
+	m_bgm->Play(true);
 
 	return true;
 }
@@ -92,8 +101,9 @@ void Game::Update()
 		timer -= GameTime().GetFrameDeltaTime();
 	}
 	else {
-		/*NewGO<GameEnd>(0, "Gameend");
-		DeleteGO(this);*/
+		m_end = NewGO<GameEnd>(0, "Gameend");
+		m_end->Setnum(m_kaikei->ReturnKekka());
+		DeleteGO(this);
 	}
 	int minute = (int)timer / 60;
 	float sec = (int)timer % 60;

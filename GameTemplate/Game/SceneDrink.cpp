@@ -53,7 +53,7 @@ bool SceneDrink::Start()
 
 
 
-
+	//wa-i
 	//ワンショット再生で停止する。
 	m_animClips[enAnimationClip_dorinkumizu].SetLoopFlag(false);
 	m_animClips[enAnimationClip_dorinkukoora].SetLoopFlag(false);

@@ -1829,6 +1829,9 @@
     <MeshContentTask Include="Assets\modelData\hito1.FBX" />
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX" />
@@ -1955,6 +1958,12 @@
     <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
     <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
     <ImageContentTask Include="Assets\sprite\sutoro-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Hiyoko\hiyokohaikei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\Karaage\kurai.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

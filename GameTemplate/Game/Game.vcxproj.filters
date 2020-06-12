@@ -157,6 +157,9 @@
     <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">
@@ -273,6 +276,8 @@
     <ImageContentTask Include="Assets\sprite\sutoro-.png" />
     <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
     <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
+    <ImageContentTask Include="Assets\sprite\Hiyoko\hiyokohaikei.png" />
+    <ImageContentTask Include="Assets\sprite\Karaage\kurai.png" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">

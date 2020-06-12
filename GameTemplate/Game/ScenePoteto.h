@@ -52,6 +52,8 @@ private:
 	CVector3 PTdiff = CVector3::Zero;				//ポテトと皿の距離
 	CVector3 APdiff = CVector3::Zero;				//油とポテトの距離
 
+	prefab::CSoundSource* piyo = nullptr;						//揚げているときのBGM
+
 	float PoteFly = 0.0;							//ポテトを揚げる秒数
 	int PotetoKansei = 0;							//完成したポテトの数
 	bool Nama = true;								//生があるか

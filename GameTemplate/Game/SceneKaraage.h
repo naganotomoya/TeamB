@@ -20,10 +20,6 @@ public:
 		return m_Tposition;
 	}
 
-
-
-
-
 	//‚ ‚°‚Ä‚¢‚é‚©‚ç‚ ‚°‚ÌŠÔ‚ğ•Ô‚·
 	//‰Šú‚Í‚P‚T•b
 	/*float ReturnKaraageJikan()

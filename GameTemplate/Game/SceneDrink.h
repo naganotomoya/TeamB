@@ -11,8 +11,67 @@ public:
 	void Move();
 	void Animation(CVector3& pos);
 	void Update();
+	void MizuUI();
 	void InitGhostObject();
+	//水の完成を返す
+	int ReturnMizu()
+	{
+		return Kanseimizu;
+	}
+	//お茶の完成を返す。
+	int ReturnOtya()
+	{
+		return Kanseiotya;
+	}
+	//コーラの完成を返す
+	int ReturnCora()
+	{
+		return Kanseikora;
+	}
+	//水の完成をマイナス
+	void minusMizu()
+	{
+		Kanseimizu--;
+	}
+	//お茶の完成をマイナす
+	void minusOtya()
+	{
+		Kanseiotya--;
+	}
+	//コーラの完成をマイナス
+	void minusCora()
+	{
+		Kanseikora--;
+	}
 
+
+
+
+
+	//void PostRender(CRenderContext& rc);
+private:
+
+	int Kanseimizu = 0;
+	int Kanseiotya = 0;
+	int Kanseikora = 0;
+
+
+
+	prefab::CSoundSource* m_oto = nullptr;
+
+	prefab::CSpriteRender* d_spriteRenderkoppu = nullptr;
+	prefab::CSpriteRender* d_spriteRendermizu = nullptr;
+	prefab::CSpriteRender* d_spriteRendersutoro = nullptr;
+	
+	bool toumei = false;
+
+	CQuaternion Hanten = CQuaternion::Identity;
+	//CVector3 MizuPos = { -2480.0f,0.0f,0.0f };
+	CVector3 MizuPos = { -2560.0f,15.0f,40.0f };
+	//CVector3 SC = { 0.05f,0.08f,0.05f };
+	CVector3 SC = { 1.2f,1.2f,1.2f };
+	CVector3 MizuSpriteScale = { 1.2f,0.0f,1.2f };
+	CVector4 mizuclo = { 1.0f,1.0f,1.0f,1.0f };
 
 	Camera* m_camera = nullptr;
 	//スプライトレンダラー

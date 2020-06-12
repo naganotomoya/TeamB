@@ -96,7 +96,7 @@ void SpriteGenerator::CHDrink(int num)
 		if (num == 1) {
 			if (mizu >= 1) {
 				CheckD->Init(L"sprite/Hiyoko/DrinkCH.dds", 250.0f, 250.0f);
-				mizu--;
+				m_drink->minusMizu();
 				SetDrink = true;
 			}
 		}
@@ -104,7 +104,7 @@ void SpriteGenerator::CHDrink(int num)
 		else if (num == 2) {
 			if (kora >= 1) {
 				CheckD->Init(L"sprite/Hiyoko/DrinkCH.dds", 250.0f, 250.0f);
-				kora--;
+				m_drink->minusCora();
 				SetDrink = true;
 			}
 		}
@@ -112,7 +112,7 @@ void SpriteGenerator::CHDrink(int num)
 		else if (num == 3) {
 			if (otya >= 1) {
 				CheckD->Init(L"sprite/Hiyoko/DrinkCH.dds", 250.0f, 250.0f);
-				otya--;
+				m_drink->minusOtya();
 				SetDrink = true;
 			}
 		}
@@ -315,9 +315,9 @@ void SpriteGenerator::SetKosuu()
 	Kara = m_karaage->ReturnKaraageKansei();
 	Pote = m_poteto->ReturnKanseiPoteto();
 	Yasai = m_morituke->ReturnKyabetuKansei();
-	mizu = num;
-	kora = num;
-	otya = num;
+	mizu = m_drink->ReturnMizu();
+	kora = m_drink->ReturnCora();
+	otya = m_drink->ReturnOtya();
 }
 
 void SpriteGenerator::Update()

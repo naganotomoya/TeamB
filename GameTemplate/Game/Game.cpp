@@ -35,8 +35,8 @@ Game::~Game()
 	DeleteGO(m_kaikei);
 
 	DeleteGO(m_fonttimer);
-	DeleteGO(m_fontkosuu);
-	DeleteGO(m_fontkanseihin);
+	/*DeleteGO(m_fontkosuu);
+	DeleteGO(m_fontkanseihin);*/
 	DeleteGO(m_bgm);
 }
 bool Game::Start()
@@ -66,16 +66,16 @@ bool Game::Start()
 	m_fonttimer->SetPosition(timerPos);
 	m_fonttimer->SetScale(2.0f);
 
-	m_fontkanseihin = NewGO<prefab::CFontRender>(0);
-	m_fontkanseihin->SetText(L"完成品：");
-	m_fontkanseihin->SetPosition(kanseiPos);
-	//m_fontkanseihin->SetColor({ 1.0f,0.0f,0.0f });
-	//m_fontkanseihin->SetScale(2.0f);
-	m_fontkosuu = NewGO<prefab::CFontRender>(0);
-	m_fontkosuu->SetPosition(kosuuPos);
+	//m_fontkanseihin = NewGO<prefab::CFontRender>(0);
+	//m_fontkanseihin->SetText(L"完成品：");
+	//m_fontkanseihin->SetPosition(kanseiPos);
+	////m_fontkanseihin->SetColor({ 1.0f,0.0f,0.0f });
+	////m_fontkanseihin->SetScale(2.0f);
+	//m_fontkosuu = NewGO<prefab::CFontRender>(0);
+	//m_fontkosuu->SetPosition(kosuuPos);
 
 	m_bgm = NewGO<prefab::CSoundSource>(0);
-	m_bgm->Init(L"sound/bgm.wav");
+	m_bgm->Init(L"sound/BGM2.wav");
 	m_bgm->SetVolume(0.8f);
 	m_bgm->Play(true);
 
@@ -101,25 +101,20 @@ void Game::Update()
 		timer -= GameTime().GetFrameDeltaTime();
 	}
 	else {
-		if (FNew == false) {
-			m_end = NewGO<GameEnd>(0, "Gameend");
-			FNew = true;
-		}
+		m_end = NewGO<GameEnd>(0, "Gameend");
 		int karinum = m_kaikei->ReturnKekka();
 		m_end->Setnum(karinum);
-		int KS = m_end->Kanseikosuu();
-		if (karinum == KS){
+		if (karinum == m_end->Kanseikosuu()) {
 			DeleteGO(this);
 		}
-
 	}
 	int minute = (int)timer / 60;
 	float sec = (int)timer % 60;
 	swprintf_s(texttimer, L"%02d:%02.0f", minute, sec);
 	m_fonttimer->SetText(texttimer);
 
-	swprintf_s(textkosuu, L"%02d", Kansei);
-	m_fontkosuu->SetText(textkosuu);
+	/*swprintf_s(textkosuu, L"%02d", Kansei);
+	m_fontkosuu->SetText(textkosuu);*/
 	if (m_kaikei->ReturnYogore() == false) {
 		m_bgm->SetVolume(0.2f);
 	}

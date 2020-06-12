@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "KaraageGenerator.h"
 
+//
 SceneKaraage::SceneKaraage()
 {
 

@@ -2,6 +2,7 @@
 #include "SceneDrink.h"
 #include "Player.h"
 #include "Camera.h"
+#include "ProgressBar.h"
 
 SceneDrink::SceneDrink()
 {
@@ -11,11 +12,20 @@ SceneDrink::~SceneDrink()
 	DeleteGO(m_kop);
 	DeleteGO(m_kop2);
 	DeleteGO(m_db);
-	DeleteGO(m_fontRender);
+	/*DeleteGO(m_fontRender);
+	DeleteGO(m_fontRender2);*/
+	DeleteGO(m_oto);
 }
+
 bool SceneDrink::Start()
 {
+	m_oto = NewGO<prefab::CSoundSource>(0);
+	m_oto->Init(L"sound/water.wav");
+	m_oto->SetVolume(0.0f);
+	m_oto->Play(true);
 
+	/*各シーンの情報*/
+	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);
 	m_camera = FindGO<Camera>("camera");
 	//ゴーストの初期化。
 	InitGhostObject();
@@ -49,7 +59,7 @@ bool SceneDrink::Start()
 
 
 
-
+	//wa-i
 	//ワンショット再生で停止する。
 	m_animClips[enAnimationClip_dorinkumizu].SetLoopFlag(false);
 	m_animClips[enAnimationClip_dorinkukoora].SetLoopFlag(false);
@@ -59,11 +69,48 @@ bool SceneDrink::Start()
 	m_animClips[enAnimationClip_kieruotya].SetLoopFlag(false);
 
 
-	m_fontRender = NewGO<prefab::CFontRender>(0);
+	/*m_fontRender = NewGO<prefab::CFontRender>(0);
 	m_fontRender2 = NewGO<prefab::CFontRender>(0);
-	m_fontRender2->SetColor(m_fontC);
+	m_fontRender2->SetColor(m_fontC);*/
 
 	player = FindGO<Player>("player");
+
+	CVector2 Pivot = { 0.5,0.35 };
+	d_spriteRenderkoppu = NewGO<prefab::CSpriteRender>(3);
+	d_spriteRenderkoppu->Init(L"sprite/kara sutoro-nasi.dds",
+	
+		30.0f,
+		30.0f,
+		true
+	);
+	d_spriteRendermizu = NewGO<prefab::CSpriteRender>(4);
+	d_spriteRendermizu->Init(L"sprite/ekitai mizu.dds",
+		30.0f,
+		30.0f,
+		true
+	);
+	d_spriteRendersutoro = NewGO<prefab::CSpriteRender>(3);
+	d_spriteRendersutoro->Init(L"sprite/sutoro-.dds",
+		30.0f,
+		30.0f,
+		true
+	);
+
+	d_spriteRenderkoppu->SetPivot(Pivot);
+	d_spriteRenderkoppu->SetRotation(Hanten);
+	d_spriteRenderkoppu->SetScale(SC);
+	d_spriteRenderkoppu->SetPosition(MizuPos);
+
+	d_spriteRendermizu->SetPivot(Pivot);
+	d_spriteRendermizu->SetRotation(Hanten);
+	d_spriteRendermizu->SetScale(MizuSpriteScale);
+	d_spriteRendermizu->SetPosition(MizuPos);
+
+	d_spriteRendersutoro->SetPivot(Pivot);
+	d_spriteRendersutoro->SetRotation(Hanten);
+	d_spriteRendersutoro->SetScale(SC);
+	d_spriteRendersutoro->SetPosition(MizuPos);
+
 	return true;
 }
 void SceneDrink::Move()
@@ -115,7 +162,16 @@ void SceneDrink::Move()
 		CVector3 diff5 = m_positionG4 - m_position2;
 		if (diff4.Length() <= 20.0f || diff5.Length() <= 20.0f) {
 			if (!Pad(0).IsPress(enButtonB)) {
-				dorinkucount++;
+				//dorinkucount++;
+				if (m_state == Mizu) {
+					Kanseimizu++;
+				}
+				else if(m_state == Otya) {
+					Kanseiotya++;
+				}
+				else if (m_state == Cora) {
+					Kanseikora++;
+				}
 				m_state = Out;
 			}
 		}
@@ -161,6 +217,7 @@ void SceneDrink::Animation(CVector3& pos)
 		//ボックスと近ければアニメーション
 		if (diff1.Length() <= 15.0f
 			&& !Pad(0).IsPress(enButtonB)) {
+			m_oto->SetVolume(5.0f);
 			//アニメーションを再生
 			m_db->PlayAnimation(enAnimationClip_dorinkumizu);
 			timer += GameTime().GetFrameDeltaTime();
@@ -177,6 +234,7 @@ void SceneDrink::Animation(CVector3& pos)
 		//ボックスと近ければアニメーション
 		if (diff2.Length() <= 15.0f
 			&& !Pad(0).IsPress(enButtonB)) {
+			m_oto->SetVolume(5.0f);
 			//アニメーションを再生
 			m_db->PlayAnimation(enAnimationClip_dorinkukoora);
 			timer += GameTime().GetFrameDeltaTime();
@@ -193,6 +251,7 @@ void SceneDrink::Animation(CVector3& pos)
 		//ボックスと近ければアニメーション
 		if (diff3.Length() <= 15.0f
 			&& !Pad(0).IsPress(enButtonB)) {
+			m_oto->SetVolume(5.0f);
 			//アニメーションを再生
 			m_db->PlayAnimation(enAnimationClip_dorinkuotya);
 			timer += GameTime().GetFrameDeltaTime();
@@ -206,10 +265,11 @@ void SceneDrink::Animation(CVector3& pos)
 	}
 //溢れたか、完成して元の位置にコップが戻る状態
 	if (m_state == Out) {
+		m_oto->SetVolume(0.0f);
 		m_position = m_Startposition;
 		m_position2 = m_Startposition2;
-		m_db->PlayAnimation(enAnimationClip_kieru);
-		timer = 5.0f;
+		m_db->PlayAnimation(enAnimationClip_kieru); 
+		timer = 0.0f;
 		dorinkucountsuuzi = 5.0f;
 		m_state = Idle;
 	}
@@ -219,8 +279,39 @@ void SceneDrink::Animation(CVector3& pos)
 		Pad(0).IsPress(enButtonLB1) ||
 		Pad(0).IsPress(enButtonB)) {
 		m_db->PlayAnimation(enAnimationClip_kieru);
+		m_oto->SetVolume(0.0f);
 	}
 
+}
+
+void SceneDrink::MizuUI()
+{
+	if (timer <= 5.0f) {
+		MizuSpriteScale.y = timer * 0.2f;
+	}
+	else if (timer <= 10.0f) {
+		MizuSpriteScale.y = 1+((timer-5.0f) * 0.1f);
+		if (toumei == false) {
+			mizuclo.w += 0.05;
+			if (mizuclo.w >= 1.0f) {
+				toumei = true;
+			}
+		}
+		if (toumei == true) {
+			mizuclo.w -= 0.05f;
+			if (mizuclo.w <= 0.0f) {
+				toumei = false;
+			}
+		}
+		//d_spriteRendermizu->SetMulColor(mizuclo);
+	}
+	if (m_state == Out) {
+		MizuSpriteScale.y = 0.0f;
+		mizuclo.w = 0.0f;
+	}
+
+	d_spriteRendermizu->SetMulColor(mizuclo);
+	d_spriteRendermizu->SetScale(MizuSpriteScale);
 }
 
 void SceneDrink::Update()
@@ -228,30 +319,31 @@ void SceneDrink::Update()
 	Move();
 	Animation(m_position);
 	Animation(m_position2);
-
+	MizuUI();
 
 
 	//timer += GameTime().GetFrameDeltaTime();
 
-	swprintf_s(text, L"完成品%d個", dorinkucount);
+	/*swprintf_s(text, L"完成品%d個", dorinkucount);
 	m_fontRender->SetText(text);
-	m_fontRender->SetPosition(m_positiontekisuto);
+	m_fontRender->SetPosition(m_positiontekisuto);*/
 
 
 	//int minute = (int)dorinkucountsuuzi / 60;
 	if (m_camera->ReturnNowScene() != 2) {
 		m_fontC.w = 0.0f;
-		m_fontRender2->SetColor(m_fontC);
+		//m_fontRender2->SetColor(m_fontC);
+		m_oto->SetVolume(0.0f);
 	}
 	if (m_camera->ReturnNowScene() == 2) {
 		m_fontC.w = 1.0f;
-		m_fontRender2->SetColor(m_fontC);
+		//m_fontRender2->SetColor(m_fontC);
 	}
 	float sec = (int)dorinkucountsuuzi % 60;
-	swprintf_s(text2, L"完成まで%02.0f",sec);
+	/*swprintf_s(text2, L"完成まで%02.0f",sec);
 	m_fontRender2->SetText(text2);
 	m_fontRender2->SetPosition(m_positiontekisuto2);
-	m_fontRender2->SetColor(m_fontC);
+	m_fontRender2->SetColor(m_fontC);*/
 
 
 	//Aボタンが押されたら待機モーションを再生する。

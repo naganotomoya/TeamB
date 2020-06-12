@@ -47,9 +47,6 @@
     <Filter Include="Assets\sprite\Karaage">
       <UniqueIdentifier>{592b58e7-3993-4198-8ebe-0ebcdb3ccd7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\modelData\KaraageS\kara">
-      <UniqueIdentifier>{6a7fc206-8b78-431f-a772-b8da7c460e34}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -159,15 +156,6 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX">
-      <Filter>Assets\modelData\KaraageS\kara</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX">
-      <Filter>Assets\modelData\KaraageS\kara</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx">
-      <Filter>Assets\modelData\KaraageS\kara</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -282,12 +270,9 @@
     <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png">
       <Filter>Assets\sprite\Karaage</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\Hiyoko\hiyokohaikei.png">
-      <Filter>Assets\sprite\Hiyoko</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\Karaage\kurai.png">
-      <Filter>Assets\sprite\Karaage</Filter>
-    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\sutoro-.png" />
+    <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
+    <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">

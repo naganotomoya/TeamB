@@ -63,6 +63,6 @@ private:
 	CVector2 kosuuPos = { 550.0f,185.0f };
 
 	prefab::CSoundSource* m_bgm = nullptr;
-	bool FNew = false;
+
 };
 

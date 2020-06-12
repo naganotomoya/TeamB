@@ -2,6 +2,7 @@
 #include "SceneDrink.h"
 #include "Player.h"
 #include "Camera.h"
+#include "ProgressBar.h"
 
 SceneDrink::SceneDrink()
 {
@@ -12,10 +13,13 @@ SceneDrink::~SceneDrink()
 	DeleteGO(m_kop2);
 	DeleteGO(m_db);
 	DeleteGO(m_fontRender);
+	DeleteGO(m_fontRender2);
 }
+
 bool SceneDrink::Start()
 {
-
+	/*各シーンの情報*/
+	Hanten.SetRotationDeg(CVector3::AxisY, 180.0f);
 	m_camera = FindGO<Camera>("camera");
 	//ゴーストの初期化。
 	InitGhostObject();
@@ -64,6 +68,34 @@ bool SceneDrink::Start()
 	m_fontRender2->SetColor(m_fontC);
 
 	player = FindGO<Player>("player");
+
+	CVector2 Pivot = { 0.5,0.5 };
+	d_spriteRender = NewGO<prefab::CSpriteRender>(3);
+	d_spriteRender->Init(L"sprite/kara sutoro-nasi.dds",
+	
+		30.0f,
+		30.0f,
+		true
+	);
+	d_spriteRender2 = NewGO<prefab::CSpriteRender>(0);
+	d_spriteRender2->Init(L"sprite/ekitai mizu.dds",
+		MainCamera().GetWidth(),
+		MainCamera().GetHeight(),
+		true
+	);
+	d_spriteRender3 = NewGO<prefab::CSpriteRender>(0);
+	d_spriteRender3->Init(L"sprite/sutoro-.dds",
+		MainCamera().GetWidth(),
+		MainCamera().GetHeight(),
+		true
+	);
+
+	d_spriteRender->SetPivot(Pivot);
+	d_spriteRender->SetRotation(Hanten);
+	d_spriteRender->SetScale(SC);
+
+	d_spriteRender->SetPosition(MizuPos);
+
 	return true;
 }
 void SceneDrink::Move()
@@ -209,7 +241,7 @@ void SceneDrink::Animation(CVector3& pos)
 		m_position = m_Startposition;
 		m_position2 = m_Startposition2;
 		m_db->PlayAnimation(enAnimationClip_kieru);
-		timer = 5.0f;
+		timer = 0.0f;
 		dorinkucountsuuzi = 5.0f;
 		m_state = Idle;
 	}

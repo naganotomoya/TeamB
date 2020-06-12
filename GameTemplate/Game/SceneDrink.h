@@ -12,7 +12,18 @@ public:
 	void Animation(CVector3& pos);
 	void Update();
 	void InitGhostObject();
+	//void PostRender(CRenderContext& rc);
 
+	prefab::CSpriteRender* d_spriteRender = nullptr;
+	prefab::CSpriteRender* d_spriteRender2 = nullptr;
+	prefab::CSpriteRender* d_spriteRender3 = nullptr;
+	
+
+	CQuaternion Hanten = CQuaternion::Identity;
+	//CVector3 MizuPos = { -2480.0f,0.0f,0.0f };
+	CVector3 MizuPos = { -2560.0f,-10.0f,40.0f };
+	//CVector3 SC = { 0.05f,0.08f,0.05f };
+	CVector3 SC = CVector3::One;
 
 	Camera* m_camera = nullptr;
 	//スプライトレンダラー

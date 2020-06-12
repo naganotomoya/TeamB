@@ -1921,6 +1921,15 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\sutoro-.png" />
+    <ImageContentTask Include="Assets\sprite\kara.png" />
+    <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
+    <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
+    <Image Include="Assets\sprite\ko-ra.png" />
+    <ImageContentTask Include="Assets\sprite\mizu.png" />
+    <Image Include="Assets\sprite\otya.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

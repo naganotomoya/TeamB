@@ -208,6 +208,11 @@
     <ImageContentTask Include="Assets\sprite\Phaikei\kaikeihaikei.png">
       <Filter>Assets\sprite\Phaikei</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\mizu.png" />
+    <ImageContentTask Include="Assets\sprite\kara.png" />
+    <ImageContentTask Include="Assets\sprite\sutoro-.png" />
+    <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
+    <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">
@@ -288,5 +293,9 @@
     <CustomBuild Include="Assets\effect\Poteto.efk">
       <Filter>Assets\effect</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\ko-ra.png" />
+    <Image Include="Assets\sprite\otya.png" />
   </ItemGroup>
 </Project>

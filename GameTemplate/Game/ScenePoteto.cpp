@@ -14,6 +14,7 @@ ScenePoteto::~ScenePoteto()
 	DeleteGO(m_Flyer);
 	DeleteGO(m_osara);
 	DeleteGO(m_abura);
+	//DeleteGO(piyo);
 }
 
 bool ScenePoteto::Start()
@@ -61,7 +62,11 @@ bool ScenePoteto::Start()
 	m_abura->SetPosition(m_aburaposition);
 	m_abura->SetRotation(Hanten);					//反転を適応
 
-	
+
+	piyo = NewGO<prefab::CSoundSource>(0);
+	piyo->Init(L"sound/SE/age.wav");
+	piyo->Play(true);
+	piyo->SetVolume(0.0f);
 	
 	return true;
 }
@@ -126,6 +131,7 @@ void ScenePoteto::Update()
 
 		//ポテトと油の距離が近くなったら揚げている状態にループ
 		else if (Len <= 20.0f && !Pad(0).IsPress(enButtonB) && m_Poteto->IsActive() == true) {
+			PoteFly = 0.0f;
 			m_state = State_oilinput;
 		}
 	
@@ -133,31 +139,40 @@ void ScenePoteto::Update()
 
 	//ポテトを揚げている状態
 	else if (m_state == State_oilinput) {
-
-		if (PoteFly >= 4 ) {
+		//揚げているときにBGM
+		piyo->SetVolume(1.0f);
+		if (PoteFly >= 1 ) {
 			//生ポテとを削除する。
-			DeleteGO(m_Poteto);
+			//DeleteGO(m_Poteto);
+			m_Poteto->SetScale({ 0.0f,0.0f,0.0f });
 			Nama = false;				//生のポテトがなくなった.
 			//揚げたてポテトを生成
-			m_KanseiPoteto = NewGO<prefab::CSkinModelRender>(0, "KanseiPoteto");
-			m_KanseiPoteto->Init(L"modelData/Poteto/poteto.cmo");
+			//m_KanseiPoteto = NewGO<prefab::CSkinModelRender>(0, "KanseiPoteto");
+			//m_KanseiPoteto->Init(L"modelData/Poteto/poteto.cmo");
+			m_KanseiPoteto->SetScale({ 1.0f,1.0f,1.0f });
 			Fried = true;				//ポテトがあるよ。
 			//揚げたてポテトをNewGOする
 			m_KanseiPoteto->SetPosition(m_Pposition);
-			PotetoKansei++;				//完成したポテとの数
 			//揚げたポテトを持ちたい
-			m_state = State_PickPoteto;
+			m_state = State_None;
 		}
 	}
 
 	//ポテトを盛り付ける状態
 	else if (m_state == State_TranlateFlyer) {
+		piyo->SetVolume(0.0f);
 		//ステートが盛り付ける状態なら
 		//ポテトのオブジェクトを削除
-		DeleteGO(m_KanseiPoteto);
+		//DeleteGO(m_KanseiPoteto);
+		m_KanseiPoteto->SetScale({ 0.0f,0.0f,0.0f });
 		//生ポテトを生成
-		m_Poteto = NewGO<prefab::CSkinModelRender>(0, "Poteto");
-		m_Poteto->Init(L"modelData/icePote/Poteto1.cmo");
+		//m_Poteto = NewGO<prefab::CSkinModelRender>(0, "Poteto");
+		//m_Poteto->Init(L"modelData/icePote/Poteto1.cmo");
+
+		//完成したポテとの数
+		PotetoKansei++;
+
+		m_Poteto->SetScale({ 1.0f,1.0f,1.0f });
 		m_Pposition = InitialPosition;
 		m_Poteto->SetPosition(m_Pposition);
 		Nama = true;				//生のポテトがある。

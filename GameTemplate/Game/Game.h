@@ -55,11 +55,11 @@ private:
 	float timer = 181.0f;	//タイマー
 	CVector2 timerPos = { 380.0f,280.0f };
 
-	prefab::CFontRender* m_fontkanseihin = nullptr;
+	//prefab::CFontRender* m_fontkanseihin = nullptr;
 	CVector2 kanseiPos = { 380.0f,180.0f };
 	int Kansei = 0;
-	prefab::CFontRender* m_fontkosuu = nullptr;
-	wchar_t textkosuu[256];
+	//prefab::CFontRender* m_fontkosuu = nullptr;
+	//wchar_t textkosuu[256];
 	CVector2 kosuuPos = { 550.0f,185.0f };
 
 	prefab::CSoundSource* m_bgm = nullptr;

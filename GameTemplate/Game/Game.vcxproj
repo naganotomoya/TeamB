@@ -1829,6 +1829,9 @@
     <MeshContentTask Include="Assets\modelData\hito1.FBX" />
     <MeshContentTask Include="Assets\modelData\icePote\Poteto1.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Kansei.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX" />
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx" />
     <MeshContentTask Include="Assets\modelData\KaraageS\Nama.FBX" />
     <MeshContentTask Include="Assets\modelData\KaraageS\sara.FBX" />
     <MeshContentTask Include="Assets\modelData\MoritukeS\houtyou.FBX" />

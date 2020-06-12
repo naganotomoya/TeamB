@@ -47,6 +47,9 @@
     <Filter Include="Assets\sprite\Karaage">
       <UniqueIdentifier>{592b58e7-3993-4198-8ebe-0ebcdb3ccd7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\KaraageS\kara">
+      <UniqueIdentifier>{c23236a7-e305-482d-b4aa-8d44d2b7c76b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -156,6 +159,15 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MoritukeS\kyabetu3.FBX">
       <Filter>Assets\modelData\MoritukeS</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\Age.FBX">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\namakara.FBX">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\KaraageS\kara\tong.fbx">
+      <Filter>Assets\modelData\KaraageS\kara</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

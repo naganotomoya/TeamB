@@ -268,6 +268,9 @@
     <ImageContentTask Include="Assets\sprite\Karaage\baawaku.png">
       <Filter>Assets\sprite\Karaage</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\sutoro-.png" />
+    <ImageContentTask Include="Assets\sprite\kara sutoro-nasi.png" />
+    <ImageContentTask Include="Assets\sprite\ekitai mizu.png" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\effect\Bon.efk">

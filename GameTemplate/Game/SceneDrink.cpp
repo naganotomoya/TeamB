@@ -286,7 +286,9 @@ void SceneDrink::Animation(CVector3& pos)
 
 void SceneDrink::MizuUI()
 {
+	
 	if (timer <= 5.0f) {
+		mizuclo.w = 1.0f;
 		MizuSpriteScale.y = timer * 0.2f;
 	}
 	else if (timer <= 10.0f) {
